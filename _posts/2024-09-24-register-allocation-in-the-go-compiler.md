@@ -9,7 +9,7 @@ As a maintainer of the [GCC](https://gcc.gnu.org/) [register allocator](https://
 
 Unfortunately, this is not the case for the[ Go compiler](https://llvm.org/). To gather information about the RA in the Go compiler, I had to delve into its source code. This article outlines my findings.
 
-## **Go's register allocator: A high-level view
+## Go's register allocator: A high-level view
 
 In summary, the current Go register allocator operates on [SSA (Static Single Assignment)](https://en.wikipedia.org/wiki/Static_single-assignment_form). The entire Go compiler optimization pipeline operates on SSA.
 
@@ -26,7 +26,7 @@ To ensure the correctness of the result code, we need to split a critical edge, 
 
 Here, our focus is on **regalloc** and **stackalloc**.
 
-## **Regalloc
+## Regalloc
 
 This is the biggest and most complicated part of Go RA.
 
@@ -42,7 +42,7 @@ To choose a better register for SSA value Go RA keeps up to 4 desired registers 
 
 The start allocation of SSA values at a BB is taken from a predecessor already processed. When there is more than one such predecessor, the predecessor with fewer spill values is used.
 
-### **Value spills
+### Value spills
 
 When the instruction corresponding to the current SSA value requires a register for the operand or result, and there are no free registers available, the register allocator can spill values that are live at the current program point.
 
@@ -58,7 +58,7 @@ The RA can also perform simple value [**rematerialization**](https://en.wikipedi
 
 Instead of spilling, the Go RA can move a value from one hard register to another. For example, this can occur when a specific value needs to be in a particular hard register (e.g., `CX` for an x86 shift instruction).
 
-### **Dealing with Phis
+### Dealing with Phis
 
 A significant portion of the register allocation code is dedicated to processing SSA Phis, ensuring that registers are correctly allocated to Phi values and their arguments according to Phi semantics (a process referred to as a shuffle in the RA code comments). Since the same argument value can be used in different Phis within a basic block, the Go register allocator may create copies of argument values at this stage.
 
@@ -68,7 +68,7 @@ At control flow graph merge points, the RA can generate instructions to ensure t
 
 By the end of the RA process, Phi value and all its operand values should occupy the same hard register or the same stack location. To achieve this, Go RA adds copies to ensure consistent value allocation at the merge points. In a sense, this can be considered an **out-of-SSA** pass. The same issue of cycles in copied values can arise, and these cycles are broken by using a temporary register and performing copies to/from it. The use of a temporary register may lead to temporary spilling of values involved in the cycle.
 
-### **Stack slot allocation
+### Stack slot allocation
 
 Values that did not obtain registers are assigned to stack slots. Efficient stack slot utilization is crucial for Go programs, as goroutines use their own stacks. Therefore, stack slot allocation is a process with global scope view. It is implemented in the [`stackalloc.go`](https://github.com/golang/go/blob/master/src/cmd/compile/internal/ssa/stackalloc.go) file. Stack slot allocation is not a separate pass in the Go compiler; rather, it is integrated into `regalloc` pass.
 
@@ -78,7 +78,7 @@ Unlike other compilers, which typically rely on live analysis based on data-flow
 
 Values that did not receive a register are processed in a specific order, and the conflict graph is used to find stack slots already allocated to values that live simultaneously with the given value. In some ways, this algorithm is analogous to Priority-Based Coloring (Fred Chow et al., "Register Allocation by Priority-Based Coloring", ACM SIGPLAN Notices, Vol. 39, Issue 4).
 
-### **Go RA data
+### Go RA data
 
 Like any register allocator, Go's RA utilizes a significant amount of data, such as instruction register requirements, allocatable registers, and the location information of SSA values at the end of a basic block. These are initialized and represented using efficient data structures. The Go compiler generates and optimizes functions **in parallel** , which makes it challenging to reuse allocated data structures, some of which can be quite large. Go developers have addressed this issue generally by allocating a **cache for parallel workers** , allowing the cache to be reused by functions processed by the same worker. A portion of this cache is used by the RA for its data.
 
@@ -90,7 +90,7 @@ GCC **scratch registers** can be described in the Go compiler using another Go i
 
 Go's RA uses 64-bit masks for registers, which means it assumes that the target has at most 64 registers.
 
-### **Dealing with SSA in Go's register allocator
+### Dealing with SSA in Go's register allocator
 
 As previously mentioned, all optimization passes, including `regalloc`, operate on **SSA** form.
 
@@ -128,13 +128,13 @@ Still, SSA after register allocation is not pure SSA. It requires retaining some
 
 Firstly, `x3` in `b2` is not dominated by the definition. The second issue is that `x5` is dead, but it is necessary to have the `x` value at `b2` in the same hard register (`BX`). Therefore, dead code elimination is never run after RA.
 
-### **RA output
+### RA output
 
 The result of `regalloc` pass is an SSA IR where values are bound to registers or stack slots, with special instructions (or SSA values) like `LoadReg`, `StoreReg`, and `Copy` added. However, the SSA IR after `regalloc` is not in a valid SSA form, rendering classical optimizations like dead code elimination impossible.
 
 The output of the Go register allocator is modified SSA code accompanied by a `RegAlloc` slice that maps SSA value IDs (unique value numbers) to their respective locations, either registers or stack slots.
 
-### **Regalloc algorithm
+### Regalloc algorithm
 
 To summarize the above, the Go register allocator employs the following algorithm:
 [code]
@@ -175,7 +175,7 @@ Comments in the source code suggest that Go's RA uses a version of [linear scan]
 
 [2] Omri Traub et al., "Quality and Speed in Linear-Scan Register Allocation," ACM SIGPLAN 1998 Conference on PLDI.
 
-### **Call ABI
+### Call ABI
 
 Go's RA assumes that all registers are clobbered by calls. In other words, if an SSA value is assigned to a register and lives through a call, it must be saved before the call and restored afterward, resulting in inefficient generated code.
 
@@ -197,7 +197,7 @@ Using a call ABI with call-saved registers complicates the implementation of fin
 
 While changing the call ABI might seem challenging, the Go compiler's ABI has already been modified once: instead of passing all call arguments on the stack, some arguments can now be passed through registers. This is not a significant issue since Go programs are statically linked.
 
-## **Conclusion
+## Conclusion
 
 In general, I consider the current Go RA to be a local scope RA with some global optimizations. As with any approach to register allocation, there are pros and cons. Here are the advantages and drawbacks of the current RA as I see them:
 **Advantages of Go RA:**
