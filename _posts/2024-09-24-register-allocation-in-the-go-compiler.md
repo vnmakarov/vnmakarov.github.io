@@ -15,12 +15,12 @@ In summary, the current Go register allocator operates on [SSA (Static Single As
 
 Taking a broader view, the current Go register allocator comprises the following components (passes), shown in Figure 1 and described below.
 
-[![GO RA extended view](assets/images/go-compiler-register-allocation/gora_0.png?itok=Uxg99riN) ](/sites/default/files/gora_0.png) Figure 1: Components within the current Go register allocator.
+[![GO RA extended view](assets/images/go-compiler-register-allocation/gora_0.png?itok=Uxg99riN) ](assets/images/go-compiler-register-allocation/gora_0.png) Figure 1: Components within the current Go register allocator.
 **Critical edge elimination** in the [control flow graph (CFG)](https://en.wikipedia.org/wiki/Control-flow_graph#:~:text=In%20computer%20science%2C%20a%20control,matrices%20for%20flow%20analysis%20before.) is a prerequisite for Go's register allocator. During its operation, the Go RA needs to insert various instructions on CFG edges. In the final program, there are no CFG edges, so the instructions must be placed at the start of the [basic block (BB)](https://en.wikipedia.org/wiki/Basic_block) that is the edge destination or at the end of the BB that is the edge source.
 
 To ensure the correctness of the result code, we need to split a critical edge, creating a BB with one input and one output edge, as shown in Figure 2.
 
-[![Critical edge elimination](assets/images/go-compiler-register-allocation/critical_0.png?itok=Kp0cavu9) ](/sites/default/files/critical_0.png) Figure 2: Basic blocks with one input and one output edge.
+[![Critical edge elimination](assets/images/go-compiler-register-allocation/critical_0.png?itok=Kp0cavu9) ](assets/images/go-compiler-register-allocation/critical_0.png) Figure 2: Basic blocks with one input and one output edge.
 **Flagalloc** deals with [conditional](https://en.wikipedia.org/wiki/Basic_block) code value allocation, which is not crucial for performance.
 **Live analysis** generates data for Go [garbage collection](https://en.wikipedia.org/wiki/Garbage_collection_\(computer_science\)) based on register allocation result.
 
@@ -34,7 +34,7 @@ The minimal allocation unit is the SSA value, which has one definition and sever
 
 The RA in Go processes basic blocks (BBs) in CFG preorder. To be more precise, BBs are processed in the Go BB layout, which is created to minimize branch instructions. An important aspect is that at least one predecessor of a BB in CFG is processed by RA first (Figure 3).
 
-[![Local assignment](assets/images/go-compiler-register-allocation/local3_0.png?itok=Ekbi7JFk) ](/sites/default/files/local3_0.png) Figure 3: Processing BBs and SSA values.
+[![Local assignment](assets/images/go-compiler-register-allocation/local3_0.png?itok=Ekbi7JFk) ](assets/images/go-compiler-register-allocation/local3_0.png) Figure 3: Processing BBs and SSA values.
 
 The RA keeps track of where currently living values are located, which can be in several different registers or in memory.
 
@@ -64,7 +64,7 @@ A significant portion of the register allocation code is dedicated to processing
 
 At control flow graph merge points, the RA can generate instructions to ensure that the live value (or its new representative) is placed in the same location from each path leading to the merge point. See Figure 4.
 
-[![Merge point](assets/images/go-compiler-register-allocation/merge_0.png?itok=VSNarZwX) ](/sites/default/files/merge_0.png) Figure 4: Processing CFG merge point.
+[![Merge point](assets/images/go-compiler-register-allocation/merge_0.png?itok=VSNarZwX) ](assets/images/go-compiler-register-allocation/merge_0.png) Figure 4: Processing CFG merge point.
 
 By the end of the RA process, Phi value and all its operand values should occupy the same hard register or the same stack location. To achieve this, Go RA adds copies to ensure consistent value allocation at the merge points. In a sense, this can be considered an **out-of-SSA** pass. The same issue of cycles in copied values can arise, and these cycles are broken by using a temporary register and performing copies to/from it. The use of a temporary register may lead to temporary spilling of values involved in the cycle.
 
