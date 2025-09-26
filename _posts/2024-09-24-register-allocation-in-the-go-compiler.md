@@ -1,10 +1,5 @@
 ---
-layout: post
 title: "Register allocation in the Go compiler"
-date: 2024-09-24
-categories: ['compilers', 'go', 'optimization', 'programming']
-author: Unknown Author
-source_url: article.html
 ---
 
 As a maintainer of the [GCC](https://gcc.gnu.org/) [register allocator](https://en.wikipedia.org/wiki/Register_allocation) (RA), I naturally have a keen interest in the register allocators used in various industrial compilers. For some compilers, like [LLVM](https://llvm.org/) and [Cranelift](https://llvm.org/), there is sufficient documentation, including papers and presentations, to gain a deep understanding of their register allocators (RAs).
