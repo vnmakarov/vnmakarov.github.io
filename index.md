@@ -1,5 +1,8 @@
 ---
-title: "Welcome"
+layout: home
+title: Home
 ---
-# Hello
-Welcome to my blog!
+
+Welcome to my site!  
+
+Below are my posts.
