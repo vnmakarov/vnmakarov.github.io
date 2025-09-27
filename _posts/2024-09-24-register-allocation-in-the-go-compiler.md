@@ -101,20 +101,20 @@ Additionally, two-operand machine instructions (which require the output and one
 To address these challenges, Go's RA employs several techniques to preserve SSA. Instead of using explicit hard registers in the [intermediate representation](https://en.wikipedia.org/wiki/Register_allocation#Graph-coloring_allocation) (IR), it maintains SSA values and maps them to registers.
 
 To represent value spills and restores, Go uses special operations `StoreReg` and `LoadReg`:
-[code]
+```
     s=StoreReg v1
     ...
     v2 = LoadReg s
-[/code]
+```
 
 To handle two-operand instructions, the RA creates a copy instruction. This allows the original value to be preserved in at least one location. In the following example, `c` and `a` share the same register, and the location for the value `d` can be reused in subsequent instructions. If the value of the copy is not used, it is removed afterward.
-[code]
+```
     d = a
     c = a op b
-[/code]
+```
 
 Still, SSA after register allocation is not pure SSA. It requires retaining some dead values; otherwise, the semantics of the function code would be invalid. The following example (taken from RA code comments but modified for better understanding) illustrates this:
-[code]
+```
                         b1: x = ... : AX
                             x2 = StoreReg x
                             ... AX gets reused for something else ...
@@ -124,7 +124,7 @@ Still, SSA after register allocation is not pure SSA. It requires retaining some
            ... use x3 ...                 ... use x4 ...
                                           x5 = copy x4 : BX
                         b2: ... use x3 ...
-[/code]
+```
 
 Firstly, `x3` in `b2` is not dominated by the definition. The second issue is that `x5` is dead, but it is necessary to have the `x` value at `b2` in the same hard register (`BX`). Therefore, dead code elimination is never run after RA.
 
@@ -137,7 +137,7 @@ The output of the Go register allocator is modified SSA code accompanied by a `R
 ### Regalloc algorithm
 
 To summarize the above, the Go register allocator employs the following algorithm:
-[code]
+```
        initialize data;
        foreach BB in CFG pre-order do // moving from function entry to exit
          calculate next value use distance;
@@ -167,7 +167,7 @@ To summarize the above, the Go register allocator employs the following algorith
        allocate stack slots to SSA values without register;
        fix all merge edges;
        remove unused generated copies;
-[/code]
+```
 
 Most of the RA code is machine-independent, driven by machine-dependent data such as instruction requirements. However, the RA code also includes **explicit machine-dependent code** , such as initialization code or handling specific operations during RA, like treating `OpAMD64ADDQconst` as a 2-op instruction to generate the preferred x86-64 `add` instead of `lea`. Additionally, a considerable amount of code is dedicated to the [WebAssembly(WASM)](https://webassembly.org/) target, identifying which values reside on the WebAssembly stack.
 
@@ -180,7 +180,7 @@ Comments in the source code suggest that Go's RA uses a version of [linear scan]
 Go's RA assumes that all registers are clobbered by calls. In other words, if an SSA value is assigned to a register and lives through a call, it must be saved before the call and restored afterward, resulting in inefficient generated code.
 
 To generate more performant code, most call ABIs have both call-saved and call-clobbered registers, allowing the RA to assign call-saved registers to pseudos that live through calls. The following example illustrates how using such a call ABI can produce better code:
-[code]
+```
        func example
        loop
          p1 = ...
@@ -189,7 +189,7 @@ To generate more performant code, most call ABIs have both call-saved and call-c
          ...
          ... = p1
        end loop
-[/code]
+```
 
 If we assign `p1` to a call-saved register `r`, and `r` is not used in the called function, we only need to save and restore `r` in the prologue and epilogue of the function `example`. However, if we use a call-clobbered register `r`, we would need to save and restore `r` around the call somewhere in the loop. This could result in millions of additional instructions being executed.
 
