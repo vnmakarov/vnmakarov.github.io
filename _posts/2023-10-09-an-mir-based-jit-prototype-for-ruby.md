@@ -106,7 +106,7 @@ The CPU time remains consistent, as YJIT and the MIR-based JIT do not operate co
 
 Furthermore, Figure 5 illustrates the maximum resident memory increase relative to the base interpreter on the Intel CPU machine.
 
-[![Max resident memory.](/assets/images/an-mir-based-jit-prototype-for-ruby/styles/article_floated/public/mir-mem.png?itok=ojrwL5Kb) ](/assets/images/an-mir-based-jit-prototype-for-ruby/mir-mem.png) Figure 5: Max resident memory.
+[![Max resident memory.](/assets/images/an-mir-based-jit-prototype-for-ruby/mir-mem.png?itok=ojrwL5Kb) ](/assets/images/an-mir-based-jit-prototype-for-ruby/mir-mem.png) Figure 5: Max resident memory.
 
 It is apparent that MIR-based JIT consumes more memory than YJIT. MIR-based JIT allocates a substantial amount of memory in advance for basic block versions (BBVs). This primarily contributes to the observed results. While YJIT previously encountered a similar issue, it was recently resolved. This is an aspect where further improvement can be made in the MIR-based JIT.
 
