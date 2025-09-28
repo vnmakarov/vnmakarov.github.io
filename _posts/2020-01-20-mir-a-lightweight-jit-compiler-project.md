@@ -352,11 +352,11 @@ The compilation speed of the MIR-generator is about 180 times faster than GCC wi
 The MIR generator's object size is much smaller than the object size of `cc1`. MIR generator has a fast startup time and is suitable for use as a tier1 JIT compiler.
 
 Here are the notes for each table row:
-  * [1]: Wall time of compilation of sieve code (without any include file and with using the memory file system for GCC).
-  * [2]: The best wall time of 10 runs.
-  * [3]: The stripped sizes of `cc1` for GCC, and the MIR core and interpreter or generator for MIR.
-  * [4]: Wall time of object code generation for an empty C file, or of the generation of an empty MIR module through the API.
-  * [5]: Based only on the files required for the AMD64 C compiler and the minimal number of files required to create and run MIR code.
+  * 1: Wall time of compilation of sieve code (without any include file and with using the memory file system for GCC).
+  * 2: The best wall time of 10 runs.
+  * 3: The stripped sizes of `cc1` for GCC, and the MIR core and interpreter or generator for MIR.
+  * 4: Wall time of object code generation for an empty C file, or of the generation of an empty MIR module through the API.
+  * 5: Based only on the files required for the AMD64 C compiler and the minimal number of files required to create and run MIR code.
 
 ## Current MIR SLOC distribution
 
