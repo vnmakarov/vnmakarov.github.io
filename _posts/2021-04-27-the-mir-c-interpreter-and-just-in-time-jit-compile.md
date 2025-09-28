@@ -3,8 +3,7 @@ layout: post
 title: "The MIR C interpreter and Just-in-Time (JIT) compiler"
 date: 2021-04-27
 categories: ['compilers']
-author: Unknown Author
-source_url: article.html
+author: Vladimir Makarov
 ---
 
 For the past two years I've worked on a project implementing a [universal lightweight Just-in-Time (JIT) compiler known as MIR](https://github.com/vnmakarov/mir). The cornerstone of the project is a machine-independent [medium-level intermediate representation](https://en.wikipedia.org/wiki/Intermediate_representation) (MIR).
@@ -42,56 +41,56 @@ As MIR, the JIT generates code for the x86-64, aarch64, ppc64 (big and little en
 `c2m` options are analogous to widely used `cc` options: `-E`, `-c`, `-S`, `-o <file>`, `-I _include_dir_`, `-D _macro_[=_value_]`, `-U _macro_`, `-L _library_dir_`, and `-l _dynamic_library_`.
 
 Instead of assembler code, `c2m` generates textual MIR representation. For example, the command
-[code]
+```
     c2m -S file1.c file2.c
 
-[/code]
+```
 
 creates the text MIR files `file1.mir` and `file2.mir`.
 
 Instead of object files, `c2m` generates a binary MIR representation. For instance, the command
-[code]
+```
     c2m -c file1.c file2.c
 
-[/code]
+```
 
 creates the binary MIR files `file1.bmir` and `file2.bmir`.
 
 Instead of an executable, `c2m` generates a linked binary MIR file. For instance, the command
-[code]
+```
     c2m file1.c file2.c
 
-[/code]
+```
 
 creates one linked binary MIR file, `a.bmir` (the name can be changed with the `-o` option).
 
 Analogous to using `cc` on assembler and object files, you can use textual and binary MIR files on the `c2m` command line, for instance:
-[code]
+```
     c2m file1.mir file2.bmir
 
-[/code]
+```
 
 This command creates a linked binary MIR file, `a.bmir`.
 
 There are a few options specific to `c2m`. To interpret C code, use the `-ei` option. For example, the command
-[code]
+```
     c2m echo.c -ei 1 2 Hello
 
-[/code]
+```
 
 compiles the program `echo.c` (which should contain a `main` function) into MIR, and the MIR will be executed in the interpreter. Options on the command-line after `-ei` will be passed to the main function as arguments (`argc` and `argv`).
 
 To execute the same program in the MIR JIT, use the `-eg` option:
-[code]
+```
     c2m echo.c -eg 1 2 Hello
 
-[/code]
+```
 
 The `-el` option requests lazy JIT generation. `c2m`will not generate machine code for a function until the function is called for the first time:
-[code]
+```
     c2m echo.c -el 1 2 Hello
 
-[/code]
+```
 
 To see how the MIR JIT compiler optimizes MIR code and generates machine code, use the `-dg` option. Be cautious, however, because it outputs a lot of information.
 
@@ -101,38 +100,38 @@ As I wrote earlier, the major implementation goal for the C-to-MIR compiler was 
 
 My approach to the C compiler implementation is a classic division into four passes of approximately the same size: preprocessor, parser, context checker, and MIR generator, as shown in Figure 1.
 
-[![The MIR compiler passes through four stages in order: preprocessor, parser, context checker, and MIR generator.](/sites/default/files/styles/article_floated/public/blog/2020/11/mir2c.png?itok=f3Koo77g) ](/sites/default/files/blog/2020/11/mir2c.png) Figure 1: The the MIR compiler passes through four stages.
+[![The MIR compiler passes through four stages in order: preprocessor, parser, context checker, and MIR generator.](/assets/images/the-mir-c-interpreter-and-just-in-time-jit-compile/mir2c.png?itok=f3Koo77g) ](/assets/images/the-mir-c-interpreter-and-just-in-time-jit-compile/mir2c.png) Figure 1: The the MIR compiler passes through four stages.
 
 I don't use any tools like YACC for the compiler. Although the ANSI C standard grammar is [ambiguous](https://en.wikipedia.org/wiki/Ambiguous_grammar), I don't modify it. I use a [parsing expression grammar (PEG)](https://en.wikipedia.org/wiki/Parsing_expression_grammar), a manual parser with rare backtracking. It is simple and small but a bit slower than [deterministic parsers](https://en.wikipedia.org/wiki/Deterministic_parsing).
 
 A typical JIT, such as in the Java Virtual Machine, runs in threads in parallel with code execution. I also designed the MIR JIT and C-to-MIR compilers to be used in a multithreaded environment. Therefore, it was easy to make `c2m` compile different source files in parallel and generate machine code in parallel for different C functions.
 
 You can define the number of parallel tasks for `c2m` to run simultaneously by using the `-p`option. For example, in this invocation
-[code]
+```
     c2m -p4 file1.c file2.c file3.c file4.c -eg _program arguments_
-[/code]
+```
 
 `c2m` will create four threads first. These threads can compile the four source files in parallel. The threads will take source files from a queue of source files to produce MIR code.
 
 After compiling and linking the generated MIR code, four new threads will do optimizations and machine-code generation for each MIR function. Analogously, these new threads take MIR functions from a queue of MIR functions. So, you can generate machine code for four functions simultaneously. Figure 2 illustrates the parallel operation of `c2m`.
 
-[![Running compilation and machine code generation in parallel](/sites/default/files/styles/article_floated/public/blog/2020/11/c2m-parallel.png?itok=oJDlOaxr) ](/sites/default/files/blog/2020/11/c2m-parallel.png) Figure 2: Running compilation and machine-code generation in parallel.
+[![Running compilation and machine code generation in parallel](/assets/images/the-mir-c-interpreter-and-just-in-time-jit-compile/c2m-parallel.png?itok=oJDlOaxr) ](/assets/images/the-mir-c-interpreter-and-just-in-time-jit-compile/c2m-parallel.png) Figure 2: Running compilation and machine-code generation in parallel.
 
 ## The current state of the C interpreter and JIT
 
 The C-to-MIR compiler is mostly implemented. It passes about 1,000 tests from different C test suites.
 
 About a year ago I achieved an important milestone: A successful [bootstrap](https://en.wikipedia.org/wiki/Bootstrapping_\(compilers\)). `c2m` compiles its own sources and generates an MIR binary. Then, an execution of this MIR binary processes the `c2m` sources again and generates another MIR binary. The two MIR binary files are identical:
-[code]
+```
     cc -O3 -fno-tree-sra -std=gnu11 -Dx86_64 -I. mir-gen.c c2mir.c c2mir-driver.c mir.c -ldl -o c2m
       ./c2m -Dx86_64 -I. mir-gen.c c2mir.c c2mir-driver.c mir.c -o 1.bmir
       ./c2m 1.bmir -el -Dx86_64 -I. mir-gen.c c2mir.c c2mir-driver.c mir.c -o 2.bmir
 
-[/code]
+```
 
 To get a better understanding of the MIR project's size, the pie chart in Figure 3 shows the lines of code in all of the `c2m` sources, as reported by [sloccount](https://dwheeler.com/sloccount/).
 
-[![Sizes of source code in the major c2m components](/sites/default/files/styles/article_floated/public/blog/2020/11/sloc.png?itok=Roi69nkw) ](/sites/default/files/blog/2020/11/sloc.png) Figure 3: Sizes of source code in the major c2m components.
+[![Sizes of source code in the major c2m components](/assets/images/the-mir-c-interpreter-and-just-in-time-jit-compile/sloc.png?itok=Roi69nkw) ](/assets/images/the-mir-c-interpreter-and-just-in-time-jit-compile/sloc.png) Figure 3: Sizes of source code in the major c2m components.
 
 ## ABI compatibility
 
@@ -165,17 +164,17 @@ To compare the performance of code generated by the compilers, I use a set of 14
 
 Figure 4 shows average and geomean relative speeds (by measuring CPU time) of the generated code from each compiler on an i9-10900 under Fedora Core 32. The baseline is code generated by GCC with `-O2`. For `c2m`, execution time includes the work of the C-to-MIR compiler and JIT, but this work is a small part of the entire execution. I ran each benchmark three times and chose the best time.
 
-[![Processor spelling?](/sites/default/files/styles/article_floated/public/blog/2020/11/commet-lake-speed.png?itok=GtvYWHG0) ](/sites/default/files/blog/2020/11/commet-lake-speed.png) Figure 4: Relative speed of code generated by the compilers tested on an Intel i9 processor.
+[![Processor spelling?](/assets/images/the-mir-c-interpreter-and-just-in-time-jit-compile/commet-lake-speed.png?itok=GtvYWHG0) ](/assets/images/the-mir-c-interpreter-and-just-in-time-jit-compile/commet-lake-speed.png) Figure 4: Relative speed of code generated by the compilers tested on an Intel i9 processor.
 
 People sometimes criticize me for rarely benchmarking AMD CPUs. Figure 5 shows the results of the benchmarks on AMD Ryzen 7 3800x, which are basically the same.
 
-[![Processor spelling?](/sites/default/files/styles/article_floated/public/blog/2020/11/ryzen-speed.png?itok=Q3gmS4qF) ](/sites/default/files/blog/2020/11/ryzen-speed.png) Figure 5: Relative speed of code generated by the compilers tested on an AMD processor.
+[![Processor spelling?](/assets/images/the-mir-c-interpreter-and-just-in-time-jit-compile/ryzen-speed.png?itok=Q3gmS4qF) ](/assets/images/the-mir-c-interpreter-and-just-in-time-jit-compile/ryzen-speed.png) Figure 5: Relative speed of code generated by the compilers tested on an AMD processor.
 
 ### Bulk compilation speed
 
 To get bulk compilation speed, I compiled the [bzip2](https://people.csail.mit.edu/smcc/projects/single-file-programs/) source as one file. The file is about 6,500 lines of C code. I used `c2m` in nonparallel mode to produce an MIR binary. Again, I compiled the source file three times and chose the best time. Figure 6 shows the compilation speed of the compilers relative to the speed of `gcc -O2`.
 
-[![Relative speed of bulk compilation](/sites/default/files/styles/article_floated/public/blog/2020/11/commet-lake-compilation-speed.png?itok=XhLUPEzz) ](/sites/default/files/blog/2020/11/commet-lake-compilation-speed.png) Figure 6: Relative speed of bulk compilation.
+[![Relative speed of bulk compilation](/assets/images/the-mir-c-interpreter-and-just-in-time-jit-compile/commet-lake-compilation-speed.png?itok=XhLUPEzz) ](/assets/images/the-mir-c-interpreter-and-just-in-time-jit-compile/commet-lake-compilation-speed.png) Figure 6: Relative speed of bulk compilation.
 
 The differences in speed are quite significant, so I have to use a logarithmic scale in the chart. The tiny C compiler has incredible speed. If it had generated better code, it could have been used as a JIT compiler with the C language as its interface.
 
@@ -185,7 +184,7 @@ Besides bulk compilation speed, compiler startup time is very important for JIT 
 
 The differences in compiler code size are even bigger. The smallest compiler (Chibicc) is almost 1,000 times smaller than the biggest one (Clang), as shown in Figure 7.
 
-[![Relative code sizes of the compilers themselves](/sites/default/files/styles/article_floated/public/blog/2020/11/commet-lake-size.png?itok=lvnutRrV) ](/sites/default/files/blog/2020/11/commet-lake-size.png) Figure 7: Relative code sizes of the compilers themselves.
+[![Relative code sizes of the compilers themselves](/assets/images/the-mir-c-interpreter-and-just-in-time-jit-compile/commet-lake-size.png?itok=lvnutRrV) ](/assets/images/the-mir-c-interpreter-and-just-in-time-jit-compile/commet-lake-size.png) Figure 7: Relative code sizes of the compilers themselves.
 
 Some compilers have a huge bss section (for instance, on Cproc it is 17MB). Therefore, for size calculations, I used the sizes of only the text and data sections.
 
