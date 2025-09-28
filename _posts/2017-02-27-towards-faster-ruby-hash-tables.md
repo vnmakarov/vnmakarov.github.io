@@ -20,7 +20,7 @@ Since Ruby 1.9, traversing hash tables and shift operation should be done in the
 
 Moore's original implementation has been changed a lot and the current Ruby hash tables have the following organization:
 
-![](/assets/images/towards-faster-ruby-hash-tables/Original_Ruby_Tables-300x117.png)
+![](/assets/images/towards-faster-ruby-hash-tables/Original_Ruby_Tables.png)
 
 The typical Ruby hash table (very small hash tables have a different organization) has an array of _bins_ , each bin containing a pointer to a list of table elements (_entries_ , in the Ruby hash table terminology). The calculated hash is translated into the table bin by a modulo operation, which is actually a mask operation as the bin array is of the size of a power of 2.
 
@@ -40,7 +40,7 @@ To improve data locality for processing entries by their inclusion order, we can
 
 So our proposed Ruby hash table has the following organization:
 
-![](/assets/images/towards-faster-ruby-hash-tables/Screen-Shot-2017-02-22-at-3.07.25-PM-300x162.png)
+![](/assets/images/towards-faster-ruby-hash-tables/Proposed_Ruby_Tables.png)
 
 The entry array contains table entries in the same order as they were inserted. When the first entry is deleted, a variable containing the index of the current first entry (_start_) is incremented. In all other cases of deletion, we just mark the entry as deleted by using a reserved hash value.
 
