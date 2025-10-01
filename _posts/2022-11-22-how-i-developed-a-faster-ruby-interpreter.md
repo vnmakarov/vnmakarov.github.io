@@ -100,13 +100,15 @@ As a rule, RTL code contains fewer instructions than stack-based instructions, a
 
 In many cases, CRuby works with values in a stack manner. For example, when pushing values for method calls. So pure RTL has its own disadvantages in such cases and might result in larger code that decodes operands more slowly. Another Ruby-specific problem in RTL lies in implementing fast addressing of Ruby local variables and stack values. Figure 1 shows a typical frame from a Ruby method.
 
-[![The ep pointer separates the local variables from the stack variables in a Ruby method frame](/assets/images/how-i-developed-a-faster-ruby-interpreter/stack2.png?itok=gqIjWorB) ](/assets/images/how-i-developed-a-faster-ruby-interpreter/stack2.png) Figure 1: The ep pointer separates the local variables from the stack variables in a Ruby method frame.
+[![The ep pointer separates the local variables from the stack variables in a Ruby method frame](/assets/images/how-i-developed-a-faster-ruby-interpreter/stack2.png?itok=gqIjWorB) ](/assets/images/how-i-developed-a-faster-ruby-interpreter/stack2.png)
+Figure 1: The ep pointer separates the local variables from the stack variables in a Ruby method frame.
 
 Addressing values in this kind of stack frame is simple. You just use an index relative to `ep` (environment pointer): Negative indices for local variables and positive indices for stack values.
 
 Unfortunately, a method's frame could also look like Figure 2.
 
-[![Another type of frame has the same layout, but inserts an unpredictable distance between the ep pointer and the stack variables](/assets/images/how-i-developed-a-faster-ruby-interpreter/stack3.png?itok=RD1WYOnP) ](/assets/images/how-i-developed-a-faster-ruby-interpreter/stack3.png) Figure 2: Another type of frame has the same layout, but inserts an unpredictable distance between the ep pointer and the stack variables.
+[![Another type of frame has the same layout, but inserts an unpredictable distance between the ep pointer and the stack variables](/assets/images/how-i-developed-a-faster-ruby-interpreter/stack3.png?itok=RD1WYOnP) ](/assets/images/how-i-developed-a-faster-ruby-interpreter/stack3.png)
+Figure 2: Another type of frame has the same layout, but inserts an unpredictable distance between the ep pointer and the stack variables.
 
 For this kind of frame, you need to use `ep` for local variables and `sp` (stack pointer) for the stack. Other ways of addressing could be used, but they all depend on addressing local and stack variables differently. This means a lot of branches for addressing instruction values.
 
@@ -116,9 +118,11 @@ Still, I used RTL about four years ago, and at that time it gave about a 30% imp
 
 Based on my previous experience, I modified my old approach of using RTL and started to use hybrid stack/RTL instructions. These instructions can address some operands implicitly and others explicitly.
 
-RTL instructions are generated only on the level of a basic block, and only lazily on the first execution of a basic block. Figure 3 shows the RTL instructions I added.
+RTL instructions are generated only on the level of a basic block, and only lazily on the first execution of a basic block.
+Figure 3 shows the RTL instructions I added.
 
-[![RTL instructions naming format.](/assets/images/how-i-developed-a-faster-ruby-interpreter/JIT-fig3.png?itok=UoK68-Up) ](/assets/images/how-i-developed-a-faster-ruby-interpreter/JIT-fig3.png) Figure 3: The names of RTL instructions follow a format.
+[![RTL instructions naming format.](/assets/images/how-i-developed-a-faster-ruby-interpreter/JIT-fig3.png?itok=UoK68-Up) ](/assets/images/how-i-developed-a-faster-ruby-interpreter/JIT-fig3.png)
+Figure 3: The names of RTL instructions follow a format.
 
 Here, the suffix (final letter) holds the following meanings:
   * `s`: The value is on the stack.
@@ -137,7 +141,8 @@ Many CRuby VM instructions are designed to work on primitive data types like a `
 
 Type-specialized instructions allowed me to remove the checks and the call code. The optimization resulted in faster and slimmer VM instructions and better interpreter code locality. The new type-specialized instructions are shown in Figure 4.
 
-[![The type-specialized instructions naming format.](/assets/images/how-i-developed-a-faster-ruby-interpreter/JIT-fig4.png?itok=NqE4UKjv) ](/assets/images/how-i-developed-a-faster-ruby-interpreter/JIT-fig4.png) Figure 4: The names of type-specialized instructions follow this format.
+[![The type-specialized instructions naming format.](/assets/images/how-i-developed-a-faster-ruby-interpreter/JIT-fig4.png?itok=NqE4UKjv) ](/assets/images/how-i-developed-a-faster-ruby-interpreter/JIT-fig4.png)
+Figure 4: The names of type-specialized instructions follow this format.
 
 The prefix takes on the following meanings:
 
@@ -168,7 +173,8 @@ This technique is easiest to explain by an example. Take the following `while` l
 
 Figure 5 illustrates basic block versioning for this loop.
 
-[![Basic block versioning creates several alternative ways to step through a basic block.](/assets/images/how-i-developed-a-faster-ruby-interpreter/bbv.png?itok=ty8wm4Oj) ](/assets/images/how-i-developed-a-faster-ruby-interpreter/bbv.png) Figure 5: Basic block versioning creates several alternative ways to step through a basic block.
+[![Basic block versioning creates several alternative ways to step through a basic block.](/assets/images/how-i-developed-a-faster-ruby-interpreter/bbv.png?itok=ty8wm4Oj) ](/assets/images/how-i-developed-a-faster-ruby-interpreter/bbv.png)
+Figure 5: Basic block versioning creates several alternative ways to step through a basic block.
 
 Upon its first encounter with the basic block, the interpreter doesn't know the types of values on the stack or in variables. But when we execute `BB1` for the first time (see the first diagram), we can easily figure out that the value type of `i` became `fixnum`.
 
@@ -186,13 +192,15 @@ Basic block versioning can be also used for other specialization techniques besi
 
 When the interpreter can't find out the input data types from basic block versioning (e.g., when handling the result of a polymorphic type method call), we insert a `sir_inspect_stack_type` or `sir_inspect_type` profiling instruction to inspect the types of the stack values or local variables. After the number of executions of a basic block version reaches some threshold, we generate a basic block version with speculatively type-specialized instructions for the data types we found, instead of profiling instructions. Figure 6 shows the format of names of speculatively type-specialized instructions.
 
-[![Speculative instructions](/assets/images/how-i-developed-a-faster-ruby-interpreter/speculative-insns-1.png?itok=zL0iWxC7) ](/assets/images/how-i-developed-a-faster-ruby-interpreter/speculative-insns-1.png) Figure 6: The names of speculative instructions follow this format.
+[![Speculative instructions](/assets/images/how-i-developed-a-faster-ruby-interpreter/speculative-insns-1.png?itok=zL0iWxC7) ](/assets/images/how-i-developed-a-faster-ruby-interpreter/speculative-insns-1.png)
+Figure 6: The names of speculative instructions follow this format.
 
 The speculative instructions check the value types of the operands. If the operand doesn't have the expected type, the instruction switches to a non-type specialized version of the basic block.
 
 Figure 7 shows some possible changes made from `sir_inspect_type`, used for profiling the types of local variable values. Instructions `sir_inspect_type`, `sir_inspect_fixtype`, and `sir_inspect_flotype` are self-modified. Depending on the types of the inspected values at the profiling stage, instead of `sir_inspect_type` we will have `sir_inspect_fixtype` (if we observed only fixnum types), `sir_inspect_flotype` (if we observed only flonum types) or `nop` in all other cases. After the profiling stage we removes all inspect instructions and nops and can generate speculative instructions from non-type-specialized RTL instructions affected by the inspect instructions, e.g. we can generate speculative instruction `sir_simultsvv` instead of non-type-specialized RTL instruction `sir_multsvv` if we observed that the instruction input values were only of fixnum type.
 
-[![Possible changes made from sir_inspect_type, used for profiling types of local variable values](/assets/images/how-i-developed-a-faster-ruby-interpreter/inspect-new_0.png?itok=v6xmC7rJ) ](/assets/images/how-i-developed-a-faster-ruby-interpreter/inspect-new_0.png) Figure 7: Possible changes made by sir_inspect_type, used for profiling types of local variable values.
+[![Possible changes made from sir_inspect_type, used for profiling types of local variable values](/assets/images/how-i-developed-a-faster-ruby-interpreter/inspect-new_0.png?itok=v6xmC7rJ) ](/assets/images/how-i-developed-a-faster-ruby-interpreter/inspect-new_0.png)
+Figure 7: Possible changes made by sir_inspect_type, used for profiling types of local variable values.
 
 The speculative instructions check data types lazily, only when we do something with the data except data moves. Speculatively type-specialized instructions permit the interpreter to use more of the new non-speculative type-specialized instructions in a basic block version. In these cases, the speculative instructions act as type guards for values used in the subsequent instructions.
 
@@ -237,7 +245,8 @@ For the speculatively type-specialized instructions, the switch can happen when 
 
 Figure 8 shows the flow through a basic block. The downward arrows show the flow that takes place so long as assumptions about data types are valid. When an assumption is invalidated, the path shown by the upward arrows is taken.
 
-[![The interpreter creates type-specialized instructions and reverts to non-specialized instructions when necessary](/assets/images/how-i-developed-a-faster-ruby-interpreter/sirflow.png?itok=4SR2HhBD) ](/assets/images/how-i-developed-a-faster-ruby-interpreter/sirflow.png) Figure 8: The interpreter creates type-specialized instructions and reverts to non-specialized instructions when necessary.
+[![The interpreter creates type-specialized instructions and reverts to non-specialized instructions when necessary](/assets/images/how-i-developed-a-faster-ruby-interpreter/sirflow.png?itok=4SR2HhBD) ](/assets/images/how-i-developed-a-faster-ruby-interpreter/sirflow.png)
+Figure 8: The interpreter creates type-specialized instructions and reverts to non-specialized instructions when necessary.
 
 Execution of a stub creates hybrid stack/RTL instructions for the first basic block of the iseq. At this point, we also generate type-specialized instructions from type information that we know, and profile instructions for values of unknown type. These type-specialized instructions will be the new execution starting point of the iseq during further iterations.
 
@@ -273,7 +282,8 @@ Note that the MIR-based JIT compiler is in the very early stage of development, 
 
 Figure 9 shows the wall times for various microbenchmarks.
 
-[![A bar graph shows the wall times for various microbenchmarks.](/assets/images/how-i-developed-a-faster-ruby-interpreter/JIT-fig9.png?itok=28cJTzcA) ](/assets/images/how-i-developed-a-faster-ruby-interpreter/JIT-fig9.png) Figure 9: Absolute speeds of four JIT compilers are better or worse on different benchmarks.
+[![A bar graph shows the wall times for various microbenchmarks.](/assets/images/how-i-developed-a-faster-ruby-interpreter/JIT-fig9.png?itok=28cJTzcA) ](/assets/images/how-i-developed-a-faster-ruby-interpreter/JIT-fig9.png)
+Figure 9: Absolute speeds of four JIT compilers are better or worse on different benchmarks.
 
 The following points explain some of the results:
 
@@ -287,7 +297,8 @@ The following points explain some of the results:
 
 People often measure only wall time for benchmarks. But CPU use is important too. It reflects how much energy is spent executing the code. CPU time improvements are given in Figure 10.
 
-[![CPU time is similar to wall time except for the MJIT compiler.](/assets/images/how-i-developed-a-faster-ruby-interpreter/sir-cpu-new.png?itok=j78af0ta) ](/assets/images/how-i-developed-a-faster-ruby-interpreter/sir-cpu-new.png) Figure 10: CPU time is similar to wall time except for the MJIT compiler.
+[![CPU time is similar to wall time except for the MJIT compiler.](/assets/images/how-i-developed-a-faster-ruby-interpreter/sir-cpu-new.png?itok=j78af0ta) ](/assets/images/how-i-developed-a-faster-ruby-interpreter/sir-cpu-new.png)
+Figure 10: CPU time is similar to wall time except for the MJIT compiler.
 
 Differences in CPU usage are comparable to differences in wall time for the microbenchmarks, except for MJIT. MJIT generates machine code using GCC or LLVM in parallel with Ruby program execution. GCC and LLVM do a lot of optimizations and spend a lot of time in them.
 
@@ -303,13 +314,15 @@ YJIT reserves a big pool of memory for its work. This memory is often not fully 
 
 Optcarrot, a Nintendo game computer emulator, is a classic benchmark for Ruby. Figure 12 shows the best frame per second (FPS) values when 3,000 frames are generated by Optcarrot.
 
-[![The new interpreter performs better than the basic interpreter on Optcarrot.](/assets/images/how-i-developed-a-faster-ruby-interpreter/carrot-new.png?itok=tjIRQaUN) ](/assets/images/how-i-developed-a-faster-ruby-interpreter/carrot-new.png) Figure 12: The new interpreter performs better than the basic interpreter on Optcarrot.
+[![The new interpreter performs better than the basic interpreter on Optcarrot.](/assets/images/how-i-developed-a-faster-ruby-interpreter/carrot-new.png?itok=tjIRQaUN) ](/assets/images/how-i-developed-a-faster-ruby-interpreter/carrot-new.png)
+Figure 12: The new interpreter performs better than the basic interpreter on Optcarrot.
 
 The specialized IR shows a 45% improvement over the basic interpreter.
 
 In the optimized version of Optcarrot (Figure 13), a huge method is generated before execution. Basically, the method is a substitute for aggressive method inlining. Because there are a lot fewer method calls, for which specialization in the interpreter is not as good as for JIT compilers, the interpreter with the specialized IR generates the second-best result, right after the MIR-based JIT compiler.
 
-[![The new interpreter performs much better than the basic interpreter on optimized Optcarrot.](/assets/images/how-i-developed-a-faster-ruby-interpreter/optcarrot-new.png?itok=nRXefVdz) ](/assets/images/how-i-developed-a-faster-ruby-interpreter/optcarrot-new.png) Figure 13: The new interpreter performs much better than the basic interpreter on optimized Optcarrot.
+[![The new interpreter performs much better than the basic interpreter on optimized Optcarrot.](/assets/images/how-i-developed-a-faster-ruby-interpreter/optcarrot-new.png?itok=nRXefVdz) ](/assets/images/how-i-developed-a-faster-ruby-interpreter/optcarrot-new.png)
+Figure 13: The new interpreter performs much better than the basic interpreter on optimized Optcarrot.
 
 YJIT behavior is the worst on this benchmark. I did not investigate why YJIT has such low performance in this case. I have heard that the reason might be that YJIT did not implement the `opt_case_dispatch` instruction used by the optimized Optcarrot.
 
