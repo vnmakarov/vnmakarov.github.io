@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "MUM-based hash functions"
-date: 2025-10-27
+date: 2025-11-25
 categories: ['performance', 'optimization']
 author: Vladimir Makarov
 ---
