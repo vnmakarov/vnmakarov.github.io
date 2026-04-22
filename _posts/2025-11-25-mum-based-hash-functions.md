@@ -433,4 +433,4 @@ may be added and widely adopted in the future. Consequently, I expect
 my work on hash functions to continue evolving alongside these
 advancements.
 
-![visitors](https://visitor-badge.laobi.icu/badge?page_id=page_id=vnmakarov.mum-blog.visitor-badge)
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=vnmakarov.mum-blog.visitor-badge)
