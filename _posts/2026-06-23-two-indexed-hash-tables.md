@@ -188,9 +188,9 @@ ihtab outperforms abseil on practically all benchmarks.  The bigger the table, t
 
 People could critique my choice of benchmarks, and it always happens.  Therefore I also include results from a hash table benchmark suite written independently by another person: [c_cpp_hash_tables_benchmark](https://github.com/JacksonAllan/c_cpp_hash_tables_benchmark).  I made a [copy of the repository](https://github.com/vnmakarov/c_cpp_hash_tables_benchmark) and added ihtab and ixhtab for benchmarking.  Here are the results:
 
-![performance heatmap](heatmap_perf.svg)
+![performance heatmap](/assets/images/two-indexed-hash-tables/heatmap_perf.svg)
 
-![memory heatmap](heatmap_mem.svg)
+![memory heatmap](/assets/images/two-indexed-hash-tables/heatmap_mem.svg)
 
 ## When to use which
 
