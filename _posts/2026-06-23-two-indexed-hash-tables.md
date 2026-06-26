@@ -41,6 +41,12 @@ Here is the data structure layout for a table with a capacity of 8 elements:
 
 ![ihtab memory layout](/assets/images/two-indexed-hash-tables/ihtab_layout.png)
 
+After discussing an initial version of this blog post on Reddit, I improved the table layout to work better for very large hash tables.  The key change is interleaving h7 tags and indexes in groups: each group contains 8 consecutive h7 tags followed by their 8 corresponding indexes.  This improves data locality during probing — when a tag match is found, the corresponding index is in the same or adjacent cache line, rather than in a completely separate array.
+
+The empty hash tag value was also changed from 0x80 to 0xc0.  This frees 0x80 for use as a **deleted hash tag**, replacing the deleted index tombstone (`~0`).  Detecting deleted slots during probing now happens entirely in the tag array, without reading the index array at all.
+
+![ihtab v1 memory layout](/assets/images/two-indexed-hash-tables/ihtab_layout_v1.png)
+
 **Memory usage.**  When keys or values are large, ihtab can actually use *less* memory than a direct open-addressing table.  In direct-addressing tables, there are always empty element slots whose memory is wasted.  In ihtab, empty tag and index slots take only 5 bytes.  Elements themselves are stored densely in the element array with no wasted space.
 
 **Table growth.**  New elements are appended at the position indicated by `bound`.  Insertions continue until the element array is full.  At that point, the table rebuilds.  Deleted elements are removed from the element array.  And if there is still not enough room for a new element, all arrays are doubled in size.  The tag, index, and bitmap data are recomputed from the surviving elements.
@@ -66,7 +72,7 @@ The upside is that rebuilds only touch one bin at a time, not the entire table. 
 
 ## Hash tags: why 7 bits matter
 
-Each tag slot stores an 8-bit value.  Seven bits hold a portion of the original hash.  The eighth bit (bit 7) marks whether the slot is empty.  Valid tags have bit 7 clear (0x00-0x7F) and empty tag slots use 0x80.
+Each tag slot stores an 8-bit value.  Seven bits hold a portion of the original hash.  The remaining bit distinguishes valid, empty, and deleted slots.  Valid tags have bit 7 clear (0x00-0x7F), deleted slots use 0x80, and empty slots use 0xc0.
 
 For uniformly random hashes, a 7-bit tag reduces the probability of a false positive by a factor of 128.  When the tag matches during a probe, there is only a 1-in-128 chance it is a spurious match rather than the actual key.  So the expensive key comparison, which may involve following a pointer, comparing a long string, or touching a separate cache line, is almost never performed unnecessarily.  At 50% load with a group of eight 7-bit tags, the expected number of false key comparisons per unsuccessful group lookup is roughly 1/32.
 
@@ -76,7 +82,7 @@ Both tables probe 8 hash tags at once.  On x86 `_mm_cmpeq_epi8` and `_mm_movemas
 
 SIMD searching avoids branch mispredictions and decreases their penalty (~15-20 cycles per misprediction on current x86 CPUs).  Without SIMD, probing at 50% load would mean 50% probability that the branch on an empty or occupied slot is taken. This is the worst case for CPU branch predictor.  SIMD replaces several unpredictable per-slot branches with a single highly-predictable branch on matching with 8 slots at once.
 
-Empty detection is even cheaper.  We need only one instruction `_mm_movemask_epi8(group)` as empty tag has value 0x80 and non-empty tags have always 0 in the 7th bit.
+Empty detection was even cheaper in the initial version.  We needed only one instruction `_mm_movemask_epi8(group)` as empty tag had value 0x80 and non-empty tags had always 0 in the 7th bit.
 
 ## Usage
 
@@ -174,23 +180,41 @@ I wrote benchmarks and a script to compare the performance of abseil's `flat_has
 
 The results of ixhtab show that extendible hash tables decrease throughput considerably.  That is a payment for reducing worst-case delays caused by full-table rebuilds.
 
-ihtab outperforms abseil on practically all benchmarks.  The bigger the table, the better ihtab's results.  I believe this is a result of better branch prediction and better cache locality when using compact h7 tags and indexes with a low load factor.  To confirm this, here are statistics obtained by perf for 10M IntLookup in a table with 1M elements on AMD9900X:
+ihtab outperforms abseil on practically all benchmarks.  The bigger the table, the better ihtab's results.  I believe this is a result of better branch prediction and better cache locality when using compact h7 tags and indexes with a low load factor.  To confirm this, here are statistics obtained by perf for 10M IntLookup in a table with 1M and 20M elements on AMD9900X:
 
-| Metric                | absl         | ihtab        | Advantage            |
-|-----------------------|--------------|--------------|----------------------|
-| Cycles                | 641.7M       | 466.4M       | **ihtab** 27% fewer  |
-| Instructions          | 493.3M       | 513.9M       | **absl** 4% fewer    |
-| IPC                   | 0.77         | 1.10         | **ihtab** 43% higher |
-| L1-dcache miss rate   | 20.7%        | 17.1%        | **ihtab** 17% lower  |
-| Branch misses         | 913K (1.83%) | 338K (0.59%) | **ihtab** 63% fewer  |
-| dTLB miss rate        | 28.7%        | 7.0%         | **ihtab** 4.1x lower |
+### N=1M (1000000 keys, 10 iterations)
 
+| Metric                | absl            | ihtab           | ihtab-v0        | Best                     |
+|-----------------------|-----------------|-----------------|-----------------|--------------------------|
+| Cycles                | 796.1M          | 300.2M          | 373.1M          | **ihtab** 62% fewer      |
+| Instructions          | 504.0M          | 442.8M          | 557.1M          | **ihtab** 21% fewer      |
+| IPC                   | 0.63            | 1.47            | 1.49            | **ihtab-v0** 136% higher |
+| L1-dcache miss rate   | 23.2%           | 24.5%           | 15.3%           | **ihtab-v0** 38% fewer   |
+| Branch misses         | 691.0K (1.47%)  | 344.1K (0.65%)  | 389.1K (0.75%)  | **ihtab** 50% fewer      |
+| dTLB miss rate        | 28.1%           | 4.9%            | 2.6%            | **ihtab-v0** 91% fewer   |
 
-People could critique my choice of benchmarks, and it always happens.  Therefore I also include results from a hash table benchmark suite written independently by another person: [c_cpp_hash_tables_benchmark](https://github.com/JacksonAllan/c_cpp_hash_tables_benchmark).  I made a [copy of the repository](https://github.com/vnmakarov/c_cpp_hash_tables_benchmark) and added ihtab and ixhtab for benchmarking.  Here are the results:
+### N=20M (20000000 keys, 10 iterations)
 
-![performance heatmap](/assets/images/two-indexed-hash-tables/heatmap_perf.svg)
+| Metric                | absl            | ihtab           | ihtab-v0        | Best                    |
+|-----------------------|-----------------|-----------------|-----------------|-------------------------|
+| Cycles                | 32.6B           | 29.4B           | 42.5B           | **ihtab** 31% fewer     |
+| Instructions          | 10.6B           | 10.3B           | 12.0B           | **ihtab** 14% fewer     |
+| IPC                   | 0.32            | 0.35            | 0.28            | **ihtab** 24% higher    |
+| L1-dcache miss rate   | 19.9%           | 21.1%           | 15.1%           | **ihtab-v0** 28% fewer  |
+| Branch misses         | 13.1M (1.46%)   | 5.1M (0.46%)    | 5.0M (0.46%)    | **ihtab-v0** 61% fewer  |
+| dTLB miss rate        | 85.7%           | 92.5%           | 80.0%           | **ihtab-v0** 14% fewer  |
 
-![memory heatmap](/assets/images/two-indexed-hash-tables/heatmap_mem.svg)
+People could critique my choice of benchmarks, and it always happens.  Therefore I also include results from a hash table benchmark suite written independently by another person: [c_cpp_hash_tables_benchmark](https://github.com/JacksonAllan/c_cpp_hash_tables_benchmark).  I made a [copy of the repository](https://github.com/vnmakarov/c_cpp_hash_tables_benchmark) and added ihtab and ixhtab for benchmarking.  Here are the results for 200K keys on AMD9900X:
+
+![performance heatmap](/assets/images/two-indexed-hash-tables/AMD-200K-25Jun_heatmap_perf.svg)
+
+![memory heatmap](/assets/images/two-indexed-hash-tables/AMD-200K-25Jun_heatmap_mem.svg)
+
+And here are the results for 20M keys on AMD9900X:
+
+![performance heatmap](/assets/images/two-indexed-hash-tables/AMD-20M-25Jun_heatmap_perf.svg)
+
+![memory heatmap](/assets/images/two-indexed-hash-tables/AMD-20M-25Jun_heatmap_mem.svg)
 
 ## When to use which
 

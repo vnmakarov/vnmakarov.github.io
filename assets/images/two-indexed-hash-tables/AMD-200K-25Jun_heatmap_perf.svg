@@ -1,0 +1,1043 @@
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='1202px' viewBox='0 0 1202 908' style='background-color: white;'>
+  <style>
+  text
+  {
+    fill: black;
+    font: 12px sans-serif;
+    dominant-baseline: middle;
+  }
+  </style>
+  <text x='601' y='16' style='font-size: 14px;' text-anchor='middle'>Total time taken relative to the fastest table in the benchmark (lower/lighter is better)</text>
+  <text x='261.75' y='120' text-anchor='start' transform='rotate(-45 261.75 120)'>absl</text>
+  <text x='305.25' y='120' text-anchor='start' transform='rotate(-45 305.25 120)'>ankerl</text>
+  <text x='348.75' y='120' text-anchor='start' transform='rotate(-45 348.75 120)'>boost</text>
+  <text x='392.25' y='120' text-anchor='start' transform='rotate(-45 392.25 120)'>emilib2</text>
+  <text x='435.75' y='120' text-anchor='start' transform='rotate(-45 435.75 120)'>ska</text>
+  <text x='479.25' y='120' text-anchor='start' transform='rotate(-45 479.25 120)'>std</text>
+  <text x='522.75' y='120' text-anchor='start' transform='rotate(-45 522.75 120)'>tsl</text>
+  <text x='566.25' y='120' text-anchor='start' transform='rotate(-45 566.25 120)'>CC</text>
+  <text x='609.75' y='120' text-anchor='start' transform='rotate(-45 609.75 120)'>khash</text>
+  <text x='653.25' y='120' text-anchor='start' transform='rotate(-45 653.25 120)'>DICT</text>
+  <text x='696.75' y='120' text-anchor='start' transform='rotate(-45 696.75 120)'>DICT_OA</text>
+  <text x='740.25' y='120' text-anchor='start' transform='rotate(-45 740.25 120)'>stb_ds</text>
+  <text x='783.75' y='120' text-anchor='start' transform='rotate(-45 783.75 120)'>STC</text>
+  <text x='827.25' y='120' text-anchor='start' transform='rotate(-45 827.25 120)'>uthash</text>
+  <text x='870.75' y='120' text-anchor='start' transform='rotate(-45 870.75 120)'>Verstable</text>
+  <text x='914.25' y='120' text-anchor='start' transform='rotate(-45 914.25 120)'>ixhtab_c</text>
+  <text x='957.75' y='120' text-anchor='start' transform='rotate(-45 957.75 120)'>ixhtab_cpp</text>
+  <text x='1001.25' y='120' text-anchor='start' transform='rotate(-45 1001.25 120)'>ihtab_c_v0</text>
+  <text x='1044.75' y='120' text-anchor='start' transform='rotate(-45 1044.75 120)'>ihtab_cpp_v0</text>
+  <text x='1088.25' y='120' text-anchor='start' transform='rotate(-45 1088.25 120)'>ihtab_c</text>
+  <text x='1131.75' y='120' text-anchor='start' transform='rotate(-45 1131.75 120)'>ihtab_cpp</text>
+  <text x='7' y='160.00'>32-bit integer key, 32-bit value:</text>
+  <text x='7' y='174.00'>Insert nonexisting</text>
+  <rect x='241.00' y='151.00' width='41.50' height='30' style='fill: rgb(255,229,102 ) !important;'/>
+  <text x='261.75' y='167.00' text-anchor='middle' style='fill: black !important;'>1.75</text>
+  <rect x='284.50' y='151.00' width='41.50' height='30' style='fill: rgb(255,179,52 ) !important;'/>
+  <text x='305.25' y='167.00' text-anchor='middle' style='fill: black !important;'>2.83</text>
+  <rect x='328.00' y='151.00' width='41.50' height='30' style='fill: rgb(254,247,136 ) !important;'/>
+  <text x='348.75' y='167.00' text-anchor='middle' style='fill: black !important;'>1.36</text>
+  <rect x='371.50' y='151.00' width='41.50' height='30' style='fill: rgb(254,250,142 ) !important;'/>
+  <text x='392.25' y='167.00' text-anchor='middle' style='fill: black !important;'>1.32</text>
+  <rect x='415.00' y='151.00' width='41.50' height='30' style='fill: rgb(255,137,10 ) !important;'/>
+  <text x='435.75' y='167.00' text-anchor='middle' style='fill: black !important;'>3.62</text>
+  <rect x='458.50' y='151.00' width='41.50' height='30' style='fill: rgb(241,114,2 ) !important;'/>
+  <text x='479.25' y='167.00' text-anchor='middle' style='fill: black !important;'>4.26</text>
+  <rect x='502.00' y='151.00' width='41.50' height='30' style='fill: rgb(250,124,5 ) !important;'/>
+  <text x='522.75' y='167.00' text-anchor='middle' style='fill: black !important;'>3.93</text>
+  <rect x='545.50' y='151.00' width='41.50' height='30' style='fill: rgb(255,165,38 ) !important;'/>
+  <text x='566.25' y='167.00' text-anchor='middle' style='fill: black !important;'>3.10</text>
+  <rect x='589.00' y='151.00' width='41.50' height='30' style='fill: rgb(255,174,46 ) !important;'/>
+  <text x='609.75' y='167.00' text-anchor='middle' style='fill: black !important;'>2.93</text>
+  <rect x='632.50' y='151.00' width='41.50' height='30' style='fill: rgb(255,189,62 ) !important;'/>
+  <text x='653.25' y='167.00' text-anchor='middle' style='fill: black !important;'>2.61</text>
+  <rect x='676.00' y='151.00' width='41.50' height='30' style='fill: rgb(255,186,58 ) !important;'/>
+  <text x='696.75' y='167.00' text-anchor='middle' style='fill: black !important;'>2.68</text>
+  <rect x='719.50' y='151.00' width='41.50' height='30' style='fill: rgb(255,147,19 ) !important;'/>
+  <text x='740.25' y='167.00' text-anchor='middle' style='fill: black !important;'>3.46</text>
+  <rect x='763.00' y='151.00' width='41.50' height='30' style='fill: rgb(255,177,50 ) !important;'/>
+  <text x='783.75' y='167.00' text-anchor='middle' style='fill: black !important;'>2.84</text>
+  <rect x='806.50' y='151.00' width='41.50' height='30' style='fill: rgb(194,67,1 ) !important;'/>
+  <text x='827.25' y='167.00' text-anchor='middle' style='fill: white !important;'>5.88</text>
+  <rect x='850.00' y='151.00' width='41.50' height='30' style='fill: rgb(255,182,55 ) !important;'/>
+  <text x='870.75' y='167.00' text-anchor='middle' style='fill: black !important;'>2.76</text>
+  <rect x='893.50' y='151.00' width='41.50' height='30' style='fill: rgb(255,229,102 ) !important;'/>
+  <text x='914.25' y='167.00' text-anchor='middle' style='fill: black !important;'>1.77</text>
+  <rect x='937.00' y='151.00' width='41.50' height='30' style='fill: rgb(255,229,102 ) !important;'/>
+  <text x='957.75' y='167.00' text-anchor='middle' style='fill: black !important;'>1.76</text>
+  <rect x='980.50' y='151.00' width='41.50' height='30' style='fill: rgb(254,253,149 ) !important;'/>
+  <text x='1001.25' y='167.00' text-anchor='middle' style='fill: black !important;'>1.22</text>
+  <rect x='1024.00' y='151.00' width='41.50' height='30' style='fill: rgb(254,241,123 ) !important;'/>
+  <text x='1044.75' y='167.00' text-anchor='middle' style='fill: black !important;'>1.51</text>
+  <rect x='1067.50' y='151.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1088.25' y='167.00' text-anchor='middle' style='fill: black !important;'>1.00</text>
+  <rect x='1111.00' y='151.00' width='41.50' height='30' style='fill: rgb(255,255,217 ) !important;'/>
+  <text x='1131.75' y='167.00' text-anchor='middle' style='fill: black !important;'>1.08</text>
+  <text x='7' y='192.00'>64-bit integer key, 448-bit value:</text>
+  <text x='7' y='206.00'>Insert nonexisting</text>
+  <rect x='241.00' y='183.00' width='41.50' height='30' style='fill: rgb(255,160,32 ) !important;'/>
+  <text x='261.75' y='199.00' text-anchor='middle' style='fill: black !important;'>3.20</text>
+  <rect x='284.50' y='183.00' width='41.50' height='30' style='fill: rgb(255,198,70 ) !important;'/>
+  <text x='305.25' y='199.00' text-anchor='middle' style='fill: black !important;'>2.42</text>
+  <rect x='328.00' y='183.00' width='41.50' height='30' style='fill: rgb(255,177,50 ) !important;'/>
+  <text x='348.75' y='199.00' text-anchor='middle' style='fill: black !important;'>2.87</text>
+  <rect x='371.50' y='183.00' width='41.50' height='30' style='fill: rgb(255,172,45 ) !important;'/>
+  <text x='392.25' y='199.00' text-anchor='middle' style='fill: black !important;'>2.97</text>
+  <rect x='415.00' y='183.00' width='41.50' height='30' style='fill: rgb(252,126,5 ) !important;'/>
+  <text x='435.75' y='199.00' text-anchor='middle' style='fill: black !important;'>3.86</text>
+  <rect x='458.50' y='183.00' width='41.50' height='30' style='fill: rgb(252,126,5 ) !important;'/>
+  <text x='479.25' y='199.00' text-anchor='middle' style='fill: black !important;'>3.86</text>
+  <rect x='502.00' y='183.00' width='41.50' height='30' style='fill: rgb(238,111,2 ) !important;'/>
+  <text x='522.75' y='199.00' text-anchor='middle' style='fill: black !important;'>4.38</text>
+  <rect x='545.50' y='183.00' width='41.50' height='30' style='fill: rgb(255,160,32 ) !important;'/>
+  <text x='566.25' y='199.00' text-anchor='middle' style='fill: black !important;'>3.21</text>
+  <rect x='589.00' y='183.00' width='41.50' height='30' style='fill: rgb(255,191,63 ) !important;'/>
+  <text x='609.75' y='199.00' text-anchor='middle' style='fill: black !important;'>2.57</text>
+  <rect x='632.50' y='183.00' width='41.50' height='30' style='fill: rgb(255,218,90 ) !important;'/>
+  <text x='653.25' y='199.00' text-anchor='middle' style='fill: black !important;'>2.01</text>
+  <rect x='676.00' y='183.00' width='41.50' height='30' style='fill: rgb(255,156,29 ) !important;'/>
+  <text x='696.75' y='199.00' text-anchor='middle' style='fill: black !important;'>3.28</text>
+  <rect x='719.50' y='183.00' width='41.50' height='30' style='fill: rgb(255,179,52 ) !important;'/>
+  <text x='740.25' y='199.00' text-anchor='middle' style='fill: black !important;'>2.81</text>
+  <rect x='763.00' y='183.00' width='41.50' height='30' style='fill: rgb(255,196,69 ) !important;'/>
+  <text x='783.75' y='199.00' text-anchor='middle' style='fill: black !important;'>2.46</text>
+  <rect x='806.50' y='183.00' width='41.50' height='30' style='fill: rgb(226,98,0 ) !important;'/>
+  <text x='827.25' y='199.00' text-anchor='middle' style='fill: black !important;'>4.79</text>
+  <rect x='850.00' y='183.00' width='41.50' height='30' style='fill: rgb(255,179,52 ) !important;'/>
+  <text x='870.75' y='199.00' text-anchor='middle' style='fill: black !important;'>2.80</text>
+  <rect x='893.50' y='183.00' width='41.50' height='30' style='fill: rgb(255,233,107 ) !important;'/>
+  <text x='914.25' y='199.00' text-anchor='middle' style='fill: black !important;'>1.69</text>
+  <rect x='937.00' y='183.00' width='41.50' height='30' style='fill: rgb(254,234,110 ) !important;'/>
+  <text x='957.75' y='199.00' text-anchor='middle' style='fill: black !important;'>1.65</text>
+  <rect x='980.50' y='183.00' width='41.50' height='30' style='fill: rgb(254,253,149 ) !important;'/>
+  <text x='1001.25' y='199.00' text-anchor='middle' style='fill: black !important;'>1.24</text>
+  <rect x='1024.00' y='183.00' width='41.50' height='30' style='fill: rgb(254,250,142 ) !important;'/>
+  <text x='1044.75' y='199.00' text-anchor='middle' style='fill: black !important;'>1.30</text>
+  <rect x='1067.50' y='183.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1088.25' y='199.00' text-anchor='middle' style='fill: black !important;'>1.00</text>
+  <rect x='1111.00' y='183.00' width='41.50' height='30' style='fill: rgb(255,255,237 ) !important;'/>
+  <text x='1131.75' y='199.00' text-anchor='middle' style='fill: black !important;'>1.07</text>
+  <text x='7' y='224.00'>16-char c-string key, 64-bit value:</text>
+  <text x='7' y='238.00'>Insert nonexisting</text>
+  <rect x='241.00' y='215.00' width='41.50' height='30' style='fill: rgb(254,253,149 ) !important;'/>
+  <text x='261.75' y='231.00' text-anchor='middle' style='fill: black !important;'>1.22</text>
+  <rect x='284.50' y='215.00' width='41.50' height='30' style='fill: rgb(254,247,136 ) !important;'/>
+  <text x='305.25' y='231.00' text-anchor='middle' style='fill: black !important;'>1.36</text>
+  <rect x='328.00' y='215.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='348.75' y='231.00' text-anchor='middle' style='fill: black !important;'>1.00</text>
+  <rect x='371.50' y='215.00' width='41.50' height='30' style='fill: rgb(255,255,237 ) !important;'/>
+  <text x='392.25' y='231.00' text-anchor='middle' style='fill: black !important;'>1.05</text>
+  <rect x='415.00' y='215.00' width='41.50' height='30' style='fill: rgb(255,226,98 ) !important;'/>
+  <text x='435.75' y='231.00' text-anchor='middle' style='fill: black !important;'>1.81</text>
+  <rect x='458.50' y='215.00' width='41.50' height='30' style='fill: rgb(254,236,113 ) !important;'/>
+  <text x='479.25' y='231.00' text-anchor='middle' style='fill: black !important;'>1.63</text>
+  <rect x='502.00' y='215.00' width='41.50' height='30' style='fill: rgb(254,241,123 ) !important;'/>
+  <text x='522.75' y='231.00' text-anchor='middle' style='fill: black !important;'>1.52</text>
+  <rect x='545.50' y='215.00' width='41.50' height='30' style='fill: rgb(254,244,129 ) !important;'/>
+  <text x='566.25' y='231.00' text-anchor='middle' style='fill: black !important;'>1.45</text>
+  <rect x='589.00' y='215.00' width='41.50' height='30' style='fill: rgb(255,231,104 ) !important;'/>
+  <text x='609.75' y='231.00' text-anchor='middle' style='fill: black !important;'>1.72</text>
+  <rect x='632.50' y='215.00' width='41.50' height='30' style='fill: rgb(254,253,149 ) !important;'/>
+  <text x='653.25' y='231.00' text-anchor='middle' style='fill: black !important;'>1.23</text>
+  <rect x='676.00' y='215.00' width='41.50' height='30' style='fill: rgb(255,231,104 ) !important;'/>
+  <text x='696.75' y='231.00' text-anchor='middle' style='fill: black !important;'>1.73</text>
+  <rect x='719.50' y='215.00' width='41.50' height='30' style='fill: rgb(254,242,126 ) !important;'/>
+  <text x='740.25' y='231.00' text-anchor='middle' style='fill: black !important;'>1.48</text>
+  <rect x='763.00' y='215.00' width='41.50' height='30' style='fill: rgb(254,239,120 ) !important;'/>
+  <text x='783.75' y='231.00' text-anchor='middle' style='fill: black !important;'>1.53</text>
+  <rect x='806.50' y='215.00' width='41.50' height='30' style='fill: rgb(255,229,102 ) !important;'/>
+  <text x='827.25' y='231.00' text-anchor='middle' style='fill: black !important;'>1.77</text>
+  <rect x='850.00' y='215.00' width='41.50' height='30' style='fill: rgb(254,246,132 ) !important;'/>
+  <text x='870.75' y='231.00' text-anchor='middle' style='fill: black !important;'>1.40</text>
+  <rect x='893.50' y='215.00' width='41.50' height='30' style='fill: rgb(254,253,149 ) !important;'/>
+  <text x='914.25' y='231.00' text-anchor='middle' style='fill: black !important;'>1.23</text>
+  <rect x='937.00' y='215.00' width='41.50' height='30' style='fill: rgb(254,249,139 ) !important;'/>
+  <text x='957.75' y='231.00' text-anchor='middle' style='fill: black !important;'>1.32</text>
+  <rect x='980.50' y='215.00' width='41.50' height='30' style='fill: rgb(255,255,195 ) !important;'/>
+  <text x='1001.25' y='231.00' text-anchor='middle' style='fill: black !important;'>1.13</text>
+  <rect x='1024.00' y='215.00' width='41.50' height='30' style='fill: rgb(255,255,171 ) !important;'/>
+  <text x='1044.75' y='231.00' text-anchor='middle' style='fill: black !important;'>1.15</text>
+  <rect x='1067.50' y='215.00' width='41.50' height='30' style='fill: rgb(255,255,237 ) !important;'/>
+  <text x='1088.25' y='231.00' text-anchor='middle' style='fill: black !important;'>1.05</text>
+  <rect x='1111.00' y='215.00' width='41.50' height='30' style='fill: rgb(255,255,195 ) !important;'/>
+  <text x='1131.75' y='231.00' text-anchor='middle' style='fill: black !important;'>1.11</text>
+  <text x='7' y='256.00'>32-bit integer key, 32-bit value:</text>
+  <text x='7' y='270.00'>Erase existing</text>
+  <rect x='241.00' y='247.00' width='41.50' height='30' style='fill: rgb(255,199,72 ) !important;'/>
+  <text x='261.75' y='263.00' text-anchor='middle' style='fill: black !important;'>2.39&#10013;</text>
+  <rect x='284.50' y='247.00' width='41.50' height='30' style='fill: rgb(127,21,8 ) !important;'/>
+  <text x='305.25' y='263.00' text-anchor='middle' style='fill: white !important;'>7.89</text>
+  <rect x='328.00' y='247.00' width='41.50' height='30' style='fill: rgb(255,255,217 ) !important;'/>
+  <text x='348.75' y='263.00' text-anchor='middle' style='fill: black !important;'>1.10&#10013;</text>
+  <rect x='371.50' y='247.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='392.25' y='263.00' text-anchor='middle' style='fill: black !important;'>1.00&#10013;</text>
+  <rect x='415.00' y='247.00' width='41.50' height='30' style='fill: rgb(255,163,36 ) !important;'/>
+  <text x='435.75' y='263.00' text-anchor='middle' style='fill: black !important;'>3.12</text>
+  <rect x='458.50' y='247.00' width='41.50' height='30' style='fill: rgb(161,35,1 ) !important;'/>
+  <text x='479.25' y='263.00' text-anchor='middle' style='fill: white !important;'>6.99</text>
+  <rect x='502.00' y='247.00' width='41.50' height='30' style='fill: rgb(191,64,1 ) !important;'/>
+  <text x='522.75' y='263.00' text-anchor='middle' style='fill: white !important;'>6.01</text>
+  <rect x='545.50' y='247.00' width='41.50' height='30' style='fill: rgb(255,176,48 ) !important;'/>
+  <text x='566.25' y='263.00' text-anchor='middle' style='fill: black !important;'>2.89</text>
+  <rect x='589.00' y='247.00' width='41.50' height='30' style='fill: rgb(255,194,67 ) !important;'/>
+  <text x='609.75' y='263.00' text-anchor='middle' style='fill: black !important;'>2.50&#10013;</text>
+  <rect x='632.50' y='247.00' width='41.50' height='30' style='fill: rgb(255,201,74 ) !important;'/>
+  <text x='653.25' y='263.00' text-anchor='middle' style='fill: black !important;'>2.34&#10013;</text>
+  <rect x='676.00' y='247.00' width='41.50' height='30' style='fill: rgb(255,213,85 ) !important;'/>
+  <text x='696.75' y='263.00' text-anchor='middle' style='fill: black !important;'>2.11&#10013;</text>
+  <rect x='719.50' y='247.00' width='41.50' height='30' style='fill: rgb(93,8,3 ) !important;'/>
+  <text x='740.25' y='263.00' text-anchor='middle' style='fill: white !important;'>8.81&#10013;</text>
+  <rect x='763.00' y='247.00' width='41.50' height='30' style='fill: rgb(24,17,16 ) !important;'/>
+  <text x='783.75' y='263.00' text-anchor='middle' style='fill: white !important;'>11.23</text>
+  <rect x='806.50' y='247.00' width='41.50' height='30' style='fill: rgb(127,21,8 ) !important;'/>
+  <text x='827.25' y='263.00' text-anchor='middle' style='fill: white !important;'>7.91</text>
+  <rect x='850.00' y='247.00' width='41.50' height='30' style='fill: rgb(255,181,53 ) !important;'/>
+  <text x='870.75' y='263.00' text-anchor='middle' style='fill: black !important;'>2.77</text>
+  <rect x='893.50' y='247.00' width='41.50' height='30' style='fill: rgb(255,218,90 ) !important;'/>
+  <text x='914.25' y='263.00' text-anchor='middle' style='fill: black !important;'>2.02&#10013;</text>
+  <rect x='937.00' y='247.00' width='41.50' height='30' style='fill: rgb(255,219,92 ) !important;'/>
+  <text x='957.75' y='263.00' text-anchor='middle' style='fill: black !important;'>1.98&#10013;</text>
+  <rect x='980.50' y='247.00' width='41.50' height='30' style='fill: rgb(254,238,117 ) !important;'/>
+  <text x='1001.25' y='263.00' text-anchor='middle' style='fill: black !important;'>1.60&#10013;</text>
+  <rect x='1024.00' y='247.00' width='41.50' height='30' style='fill: rgb(255,231,104 ) !important;'/>
+  <text x='1044.75' y='263.00' text-anchor='middle' style='fill: black !important;'>1.72&#10013;</text>
+  <rect x='1067.50' y='247.00' width='41.50' height='30' style='fill: rgb(254,249,139 ) !important;'/>
+  <text x='1088.25' y='263.00' text-anchor='middle' style='fill: black !important;'>1.34&#10013;</text>
+  <rect x='1111.00' y='247.00' width='41.50' height='30' style='fill: rgb(254,247,136 ) !important;'/>
+  <text x='1131.75' y='263.00' text-anchor='middle' style='fill: black !important;'>1.37&#10013;</text>
+  <text x='7' y='288.00'>64-bit integer key, 448-bit value:</text>
+  <text x='7' y='302.00'>Erase existing</text>
+  <rect x='241.00' y='279.00' width='41.50' height='30' style='fill: rgb(255,214,87 ) !important;'/>
+  <text x='261.75' y='295.00' text-anchor='middle' style='fill: black !important;'>2.09&#10013;</text>
+  <rect x='284.50' y='279.00' width='41.50' height='30' style='fill: rgb(233,106,1 ) !important;'/>
+  <text x='305.25' y='295.00' text-anchor='middle' style='fill: black !important;'>4.56</text>
+  <rect x='328.00' y='279.00' width='41.50' height='30' style='fill: rgb(255,255,171 ) !important;'/>
+  <text x='348.75' y='295.00' text-anchor='middle' style='fill: black !important;'>1.14&#10013;</text>
+  <rect x='371.50' y='279.00' width='41.50' height='30' style='fill: rgb(254,250,142 ) !important;'/>
+  <text x='392.25' y='295.00' text-anchor='middle' style='fill: black !important;'>1.28&#10013;</text>
+  <rect x='415.00' y='279.00' width='41.50' height='30' style='fill: rgb(255,196,69 ) !important;'/>
+  <text x='435.75' y='295.00' text-anchor='middle' style='fill: black !important;'>2.48</text>
+  <rect x='458.50' y='279.00' width='41.50' height='30' style='fill: rgb(232,104,1 ) !important;'/>
+  <text x='479.25' y='295.00' text-anchor='middle' style='fill: black !important;'>4.58</text>
+  <rect x='502.00' y='279.00' width='41.50' height='30' style='fill: rgb(237,110,1 ) !important;'/>
+  <text x='522.75' y='295.00' text-anchor='middle' style='fill: black !important;'>4.42</text>
+  <rect x='545.50' y='279.00' width='41.50' height='30' style='fill: rgb(255,221,93 ) !important;'/>
+  <text x='566.25' y='295.00' text-anchor='middle' style='fill: black !important;'>1.94</text>
+  <rect x='589.00' y='279.00' width='41.50' height='30' style='fill: rgb(254,239,120 ) !important;'/>
+  <text x='609.75' y='295.00' text-anchor='middle' style='fill: black !important;'>1.56&#10013;</text>
+  <rect x='632.50' y='279.00' width='41.50' height='30' style='fill: rgb(254,244,129 ) !important;'/>
+  <text x='653.25' y='295.00' text-anchor='middle' style='fill: black !important;'>1.43&#10013;</text>
+  <rect x='676.00' y='279.00' width='41.50' height='30' style='fill: rgb(254,239,120 ) !important;'/>
+  <text x='696.75' y='295.00' text-anchor='middle' style='fill: black !important;'>1.56&#10013;</text>
+  <rect x='719.50' y='279.00' width='41.50' height='30' style='fill: rgb(190,63,1 ) !important;'/>
+  <text x='740.25' y='295.00' text-anchor='middle' style='fill: white !important;'>6.04&#10013;</text>
+  <rect x='763.00' y='279.00' width='41.50' height='30' style='fill: rgb(153,27,1 ) !important;'/>
+  <text x='783.75' y='295.00' text-anchor='middle' style='fill: white !important;'>7.26</text>
+  <rect x='806.50' y='279.00' width='41.50' height='30' style='fill: rgb(228,100,0 ) !important;'/>
+  <text x='827.25' y='295.00' text-anchor='middle' style='fill: black !important;'>4.73</text>
+  <rect x='850.00' y='279.00' width='41.50' height='30' style='fill: rgb(255,216,88 ) !important;'/>
+  <text x='870.75' y='295.00' text-anchor='middle' style='fill: black !important;'>2.05</text>
+  <rect x='893.50' y='279.00' width='41.50' height='30' style='fill: rgb(255,229,102 ) !important;'/>
+  <text x='914.25' y='295.00' text-anchor='middle' style='fill: black !important;'>1.76&#10013;</text>
+  <rect x='937.00' y='279.00' width='41.50' height='30' style='fill: rgb(255,231,104 ) !important;'/>
+  <text x='957.75' y='295.00' text-anchor='middle' style='fill: black !important;'>1.73&#10013;</text>
+  <rect x='980.50' y='279.00' width='41.50' height='30' style='fill: rgb(255,255,152 ) !important;'/>
+  <text x='1001.25' y='295.00' text-anchor='middle' style='fill: black !important;'>1.18&#10013;</text>
+  <rect x='1024.00' y='279.00' width='41.50' height='30' style='fill: rgb(254,252,145 ) !important;'/>
+  <text x='1044.75' y='295.00' text-anchor='middle' style='fill: black !important;'>1.26&#10013;</text>
+  <rect x='1067.50' y='279.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1088.25' y='295.00' text-anchor='middle' style='fill: black !important;'>1.00&#10013;</text>
+  <rect x='1111.00' y='279.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1131.75' y='295.00' text-anchor='middle' style='fill: black !important;'>1.02&#10013;</text>
+  <text x='7' y='320.00'>16-char c-string key, 64-bit value:</text>
+  <text x='7' y='334.00'>Erase existing</text>
+  <rect x='241.00' y='311.00' width='41.50' height='30' style='fill: rgb(254,249,139 ) !important;'/>
+  <text x='261.75' y='327.00' text-anchor='middle' style='fill: black !important;'>1.32&#10013;</text>
+  <rect x='284.50' y='311.00' width='41.50' height='30' style='fill: rgb(255,174,46 ) !important;'/>
+  <text x='305.25' y='327.00' text-anchor='middle' style='fill: black !important;'>2.91</text>
+  <rect x='328.00' y='311.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='348.75' y='327.00' text-anchor='middle' style='fill: black !important;'>1.02&#10013;</text>
+  <rect x='371.50' y='311.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='392.25' y='327.00' text-anchor='middle' style='fill: black !important;'>1.00&#10013;</text>
+  <rect x='415.00' y='311.00' width='41.50' height='30' style='fill: rgb(255,229,102 ) !important;'/>
+  <text x='435.75' y='327.00' text-anchor='middle' style='fill: black !important;'>1.76</text>
+  <rect x='458.50' y='311.00' width='41.50' height='30' style='fill: rgb(255,199,72 ) !important;'/>
+  <text x='479.25' y='327.00' text-anchor='middle' style='fill: black !important;'>2.39</text>
+  <rect x='502.00' y='311.00' width='41.50' height='30' style='fill: rgb(255,179,52 ) !important;'/>
+  <text x='522.75' y='327.00' text-anchor='middle' style='fill: black !important;'>2.82</text>
+  <rect x='545.50' y='311.00' width='41.50' height='30' style='fill: rgb(254,247,136 ) !important;'/>
+  <text x='566.25' y='327.00' text-anchor='middle' style='fill: black !important;'>1.36</text>
+  <rect x='589.00' y='311.00' width='41.50' height='30' style='fill: rgb(254,236,113 ) !important;'/>
+  <text x='609.75' y='327.00' text-anchor='middle' style='fill: black !important;'>1.61&#10013;</text>
+  <rect x='632.50' y='311.00' width='41.50' height='30' style='fill: rgb(254,247,136 ) !important;'/>
+  <text x='653.25' y='327.00' text-anchor='middle' style='fill: black !important;'>1.36&#10013;</text>
+  <rect x='676.00' y='311.00' width='41.50' height='30' style='fill: rgb(254,242,126 ) !important;'/>
+  <text x='696.75' y='327.00' text-anchor='middle' style='fill: black !important;'>1.49&#10013;</text>
+  <rect x='719.50' y='311.00' width='41.50' height='30' style='fill: rgb(255,162,34 ) !important;'/>
+  <text x='740.25' y='327.00' text-anchor='middle' style='fill: black !important;'>3.18&#10013;</text>
+  <rect x='763.00' y='311.00' width='41.50' height='30' style='fill: rgb(175,49,1 ) !important;'/>
+  <text x='783.75' y='327.00' text-anchor='middle' style='fill: white !important;'>6.52</text>
+  <rect x='806.50' y='311.00' width='41.50' height='30' style='fill: rgb(255,179,52 ) !important;'/>
+  <text x='827.25' y='327.00' text-anchor='middle' style='fill: black !important;'>2.83</text>
+  <rect x='850.00' y='311.00' width='41.50' height='30' style='fill: rgb(254,247,136 ) !important;'/>
+  <text x='870.75' y='327.00' text-anchor='middle' style='fill: black !important;'>1.37</text>
+  <rect x='893.50' y='311.00' width='41.50' height='30' style='fill: rgb(254,252,145 ) !important;'/>
+  <text x='914.25' y='327.00' text-anchor='middle' style='fill: black !important;'>1.26&#10013;</text>
+  <rect x='937.00' y='311.00' width='41.50' height='30' style='fill: rgb(254,252,145 ) !important;'/>
+  <text x='957.75' y='327.00' text-anchor='middle' style='fill: black !important;'>1.27&#10013;</text>
+  <rect x='980.50' y='311.00' width='41.50' height='30' style='fill: rgb(254,253,149 ) !important;'/>
+  <text x='1001.25' y='327.00' text-anchor='middle' style='fill: black !important;'>1.22&#10013;</text>
+  <rect x='1024.00' y='311.00' width='41.50' height='30' style='fill: rgb(254,253,149 ) !important;'/>
+  <text x='1044.75' y='327.00' text-anchor='middle' style='fill: black !important;'>1.24&#10013;</text>
+  <rect x='1067.50' y='311.00' width='41.50' height='30' style='fill: rgb(255,255,217 ) !important;'/>
+  <text x='1088.25' y='327.00' text-anchor='middle' style='fill: black !important;'>1.07&#10013;</text>
+  <rect x='1111.00' y='311.00' width='41.50' height='30' style='fill: rgb(255,255,195 ) !important;'/>
+  <text x='1131.75' y='327.00' text-anchor='middle' style='fill: black !important;'>1.11&#10013;</text>
+  <text x='7' y='352.00'>32-bit integer key, 32-bit value:</text>
+  <text x='7' y='366.00'>Replace existing</text>
+  <rect x='241.00' y='343.00' width='41.50' height='30' style='fill: rgb(255,255,237 ) !important;'/>
+  <text x='261.75' y='359.00' text-anchor='middle' style='fill: black !important;'>1.04</text>
+  <rect x='284.50' y='343.00' width='41.50' height='30' style='fill: rgb(255,158,30 ) !important;'/>
+  <text x='305.25' y='359.00' text-anchor='middle' style='fill: black !important;'>3.24</text>
+  <rect x='328.00' y='343.00' width='41.50' height='30' style='fill: rgb(254,252,145 ) !important;'/>
+  <text x='348.75' y='359.00' text-anchor='middle' style='fill: black !important;'>1.27</text>
+  <rect x='371.50' y='343.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='392.25' y='359.00' text-anchor='middle' style='fill: black !important;'>1.00</text>
+  <rect x='415.00' y='343.00' width='41.50' height='30' style='fill: rgb(255,213,85 ) !important;'/>
+  <text x='435.75' y='359.00' text-anchor='middle' style='fill: black !important;'>2.11</text>
+  <rect x='458.50' y='343.00' width='41.50' height='30' style='fill: rgb(255,167,39 ) !important;'/>
+  <text x='479.25' y='359.00' text-anchor='middle' style='fill: black !important;'>3.05</text>
+  <rect x='502.00' y='343.00' width='41.50' height='30' style='fill: rgb(255,163,36 ) !important;'/>
+  <text x='522.75' y='359.00' text-anchor='middle' style='fill: black !important;'>3.13</text>
+  <rect x='545.50' y='343.00' width='41.50' height='30' style='fill: rgb(255,228,100 ) !important;'/>
+  <text x='566.25' y='359.00' text-anchor='middle' style='fill: black !important;'>1.79</text>
+  <rect x='589.00' y='343.00' width='41.50' height='30' style='fill: rgb(255,189,62 ) !important;'/>
+  <text x='609.75' y='359.00' text-anchor='middle' style='fill: black !important;'>2.59</text>
+  <rect x='632.50' y='343.00' width='41.50' height='30' style='fill: rgb(255,191,63 ) !important;'/>
+  <text x='653.25' y='359.00' text-anchor='middle' style='fill: black !important;'>2.57</text>
+  <rect x='676.00' y='343.00' width='41.50' height='30' style='fill: rgb(255,213,85 ) !important;'/>
+  <text x='696.75' y='359.00' text-anchor='middle' style='fill: black !important;'>2.10</text>
+  <rect x='719.50' y='343.00' width='41.50' height='30' style='fill: rgb(254,128,5 ) !important;'/>
+  <text x='740.25' y='359.00' text-anchor='middle' style='fill: black !important;'>3.82</text>
+  <rect x='763.00' y='343.00' width='41.50' height='30' style='fill: rgb(255,163,36 ) !important;'/>
+  <text x='783.75' y='359.00' text-anchor='middle' style='fill: black !important;'>3.15</text>
+  <rect x='806.50' y='343.00' width='41.50' height='30' style='fill: rgb(224,96,0 ) !important;'/>
+  <text x='827.25' y='359.00' text-anchor='middle' style='fill: black !important;'>4.85</text>
+  <rect x='850.00' y='343.00' width='41.50' height='30' style='fill: rgb(255,231,104 ) !important;'/>
+  <text x='870.75' y='359.00' text-anchor='middle' style='fill: black !important;'>1.74</text>
+  <rect x='893.50' y='343.00' width='41.50' height='30' style='fill: rgb(254,239,120 ) !important;'/>
+  <text x='914.25' y='359.00' text-anchor='middle' style='fill: black !important;'>1.56</text>
+  <rect x='937.00' y='343.00' width='41.50' height='30' style='fill: rgb(254,241,123 ) !important;'/>
+  <text x='957.75' y='359.00' text-anchor='middle' style='fill: black !important;'>1.51</text>
+  <rect x='980.50' y='343.00' width='41.50' height='30' style='fill: rgb(254,249,139 ) !important;'/>
+  <text x='1001.25' y='359.00' text-anchor='middle' style='fill: black !important;'>1.35</text>
+  <rect x='1024.00' y='343.00' width='41.50' height='30' style='fill: rgb(254,246,132 ) !important;'/>
+  <text x='1044.75' y='359.00' text-anchor='middle' style='fill: black !important;'>1.41</text>
+  <rect x='1067.50' y='343.00' width='41.50' height='30' style='fill: rgb(255,255,152 ) !important;'/>
+  <text x='1088.25' y='359.00' text-anchor='middle' style='fill: black !important;'>1.19</text>
+  <rect x='1111.00' y='343.00' width='41.50' height='30' style='fill: rgb(255,255,152 ) !important;'/>
+  <text x='1131.75' y='359.00' text-anchor='middle' style='fill: black !important;'>1.18</text>
+  <text x='7' y='384.00'>64-bit integer key, 448-bit value:</text>
+  <text x='7' y='398.00'>Replace existing</text>
+  <rect x='241.00' y='375.00' width='41.50' height='30' style='fill: rgb(254,246,132 ) !important;'/>
+  <text x='261.75' y='391.00' text-anchor='middle' style='fill: black !important;'>1.40</text>
+  <rect x='284.50' y='375.00' width='41.50' height='30' style='fill: rgb(255,191,63 ) !important;'/>
+  <text x='305.25' y='391.00' text-anchor='middle' style='fill: black !important;'>2.56</text>
+  <rect x='328.00' y='375.00' width='41.50' height='30' style='fill: rgb(254,238,117 ) !important;'/>
+  <text x='348.75' y='391.00' text-anchor='middle' style='fill: black !important;'>1.59</text>
+  <rect x='371.50' y='375.00' width='41.50' height='30' style='fill: rgb(254,244,129 ) !important;'/>
+  <text x='392.25' y='391.00' text-anchor='middle' style='fill: black !important;'>1.45</text>
+  <rect x='415.00' y='375.00' width='41.50' height='30' style='fill: rgb(255,206,79 ) !important;'/>
+  <text x='435.75' y='391.00' text-anchor='middle' style='fill: black !important;'>2.26</text>
+  <rect x='458.50' y='375.00' width='41.50' height='30' style='fill: rgb(255,184,57 ) !important;'/>
+  <text x='479.25' y='391.00' text-anchor='middle' style='fill: black !important;'>2.71</text>
+  <rect x='502.00' y='375.00' width='41.50' height='30' style='fill: rgb(255,179,52 ) !important;'/>
+  <text x='522.75' y='391.00' text-anchor='middle' style='fill: black !important;'>2.83</text>
+  <rect x='545.50' y='375.00' width='41.50' height='30' style='fill: rgb(255,224,97 ) !important;'/>
+  <text x='566.25' y='391.00' text-anchor='middle' style='fill: black !important;'>1.88</text>
+  <rect x='589.00' y='375.00' width='41.50' height='30' style='fill: rgb(255,204,77 ) !important;'/>
+  <text x='609.75' y='391.00' text-anchor='middle' style='fill: black !important;'>2.29</text>
+  <rect x='632.50' y='375.00' width='41.50' height='30' style='fill: rgb(255,221,93 ) !important;'/>
+  <text x='653.25' y='391.00' text-anchor='middle' style='fill: black !important;'>1.93</text>
+  <rect x='676.00' y='375.00' width='41.50' height='30' style='fill: rgb(255,213,85 ) !important;'/>
+  <text x='696.75' y='391.00' text-anchor='middle' style='fill: black !important;'>2.10</text>
+  <rect x='719.50' y='375.00' width='41.50' height='30' style='fill: rgb(255,169,41 ) !important;'/>
+  <text x='740.25' y='391.00' text-anchor='middle' style='fill: black !important;'>3.03</text>
+  <rect x='763.00' y='375.00' width='41.50' height='30' style='fill: rgb(255,201,74 ) !important;'/>
+  <text x='783.75' y='391.00' text-anchor='middle' style='fill: black !important;'>2.35</text>
+  <rect x='806.50' y='375.00' width='41.50' height='30' style='fill: rgb(253,127,6 ) !important;'/>
+  <text x='827.25' y='391.00' text-anchor='middle' style='fill: black !important;'>3.83</text>
+  <rect x='850.00' y='375.00' width='41.50' height='30' style='fill: rgb(255,219,92 ) !important;'/>
+  <text x='870.75' y='391.00' text-anchor='middle' style='fill: black !important;'>1.98</text>
+  <rect x='893.50' y='375.00' width='41.50' height='30' style='fill: rgb(254,246,132 ) !important;'/>
+  <text x='914.25' y='391.00' text-anchor='middle' style='fill: black !important;'>1.42</text>
+  <rect x='937.00' y='375.00' width='41.50' height='30' style='fill: rgb(254,247,136 ) !important;'/>
+  <text x='957.75' y='391.00' text-anchor='middle' style='fill: black !important;'>1.37</text>
+  <rect x='980.50' y='375.00' width='41.50' height='30' style='fill: rgb(254,253,149 ) !important;'/>
+  <text x='1001.25' y='391.00' text-anchor='middle' style='fill: black !important;'>1.21</text>
+  <rect x='1024.00' y='375.00' width='41.50' height='30' style='fill: rgb(254,253,149 ) !important;'/>
+  <text x='1044.75' y='391.00' text-anchor='middle' style='fill: black !important;'>1.22</text>
+  <rect x='1067.50' y='375.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1088.25' y='391.00' text-anchor='middle' style='fill: black !important;'>1.03</text>
+  <rect x='1111.00' y='375.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1131.75' y='391.00' text-anchor='middle' style='fill: black !important;'>1.00</text>
+  <text x='7' y='416.00'>16-char c-string key, 64-bit value:</text>
+  <text x='7' y='430.00'>Replace existing</text>
+  <rect x='241.00' y='407.00' width='41.50' height='30' style='fill: rgb(255,255,237 ) !important;'/>
+  <text x='261.75' y='423.00' text-anchor='middle' style='fill: black !important;'>1.06</text>
+  <rect x='284.50' y='407.00' width='41.50' height='30' style='fill: rgb(254,244,129 ) !important;'/>
+  <text x='305.25' y='423.00' text-anchor='middle' style='fill: black !important;'>1.44</text>
+  <rect x='328.00' y='407.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='348.75' y='423.00' text-anchor='middle' style='fill: black !important;'>1.03</text>
+  <rect x='371.50' y='407.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='392.25' y='423.00' text-anchor='middle' style='fill: black !important;'>1.00</text>
+  <rect x='415.00' y='407.00' width='41.50' height='30' style='fill: rgb(254,244,129 ) !important;'/>
+  <text x='435.75' y='423.00' text-anchor='middle' style='fill: black !important;'>1.43</text>
+  <rect x='458.50' y='407.00' width='41.50' height='30' style='fill: rgb(255,233,107 ) !important;'/>
+  <text x='479.25' y='423.00' text-anchor='middle' style='fill: black !important;'>1.68</text>
+  <rect x='502.00' y='407.00' width='41.50' height='30' style='fill: rgb(255,218,90 ) !important;'/>
+  <text x='522.75' y='423.00' text-anchor='middle' style='fill: black !important;'>1.99</text>
+  <rect x='545.50' y='407.00' width='41.50' height='30' style='fill: rgb(255,255,152 ) !important;'/>
+  <text x='566.25' y='423.00' text-anchor='middle' style='fill: black !important;'>1.18</text>
+  <rect x='589.00' y='407.00' width='41.50' height='30' style='fill: rgb(254,234,110 ) !important;'/>
+  <text x='609.75' y='423.00' text-anchor='middle' style='fill: black !important;'>1.66</text>
+  <rect x='632.50' y='407.00' width='41.50' height='30' style='fill: rgb(254,250,142 ) !important;'/>
+  <text x='653.25' y='423.00' text-anchor='middle' style='fill: black !important;'>1.32</text>
+  <rect x='676.00' y='407.00' width='41.50' height='30' style='fill: rgb(254,239,120 ) !important;'/>
+  <text x='696.75' y='423.00' text-anchor='middle' style='fill: black !important;'>1.55</text>
+  <rect x='719.50' y='407.00' width='41.50' height='30' style='fill: rgb(254,241,123 ) !important;'/>
+  <text x='740.25' y='423.00' text-anchor='middle' style='fill: black !important;'>1.51</text>
+  <rect x='763.00' y='407.00' width='41.50' height='30' style='fill: rgb(254,239,120 ) !important;'/>
+  <text x='783.75' y='423.00' text-anchor='middle' style='fill: black !important;'>1.55</text>
+  <rect x='806.50' y='407.00' width='41.50' height='30' style='fill: rgb(255,216,88 ) !important;'/>
+  <text x='827.25' y='423.00' text-anchor='middle' style='fill: black !important;'>2.03</text>
+  <rect x='850.00' y='407.00' width='41.50' height='30' style='fill: rgb(255,255,152 ) !important;'/>
+  <text x='870.75' y='423.00' text-anchor='middle' style='fill: black !important;'>1.19</text>
+  <rect x='893.50' y='407.00' width='41.50' height='30' style='fill: rgb(255,255,195 ) !important;'/>
+  <text x='914.25' y='423.00' text-anchor='middle' style='fill: black !important;'>1.12</text>
+  <rect x='937.00' y='407.00' width='41.50' height='30' style='fill: rgb(255,255,195 ) !important;'/>
+  <text x='957.75' y='423.00' text-anchor='middle' style='fill: black !important;'>1.11</text>
+  <rect x='980.50' y='407.00' width='41.50' height='30' style='fill: rgb(255,255,195 ) !important;'/>
+  <text x='1001.25' y='423.00' text-anchor='middle' style='fill: black !important;'>1.12</text>
+  <rect x='1024.00' y='407.00' width='41.50' height='30' style='fill: rgb(255,255,217 ) !important;'/>
+  <text x='1044.75' y='423.00' text-anchor='middle' style='fill: black !important;'>1.10</text>
+  <rect x='1067.50' y='407.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1088.25' y='423.00' text-anchor='middle' style='fill: black !important;'>1.03</text>
+  <rect x='1111.00' y='407.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1131.75' y='423.00' text-anchor='middle' style='fill: black !important;'>1.01</text>
+  <text x='7' y='448.00'>32-bit integer key, 32-bit value:</text>
+  <text x='7' y='462.00'>Erase nonexisting</text>
+  <rect x='241.00' y='439.00' width='41.50' height='30' style='fill: rgb(254,236,113 ) !important;'/>
+  <text x='261.75' y='455.00' text-anchor='middle' style='fill: black !important;'>1.63</text>
+  <rect x='284.50' y='439.00' width='41.50' height='30' style='fill: rgb(249,123,4 ) !important;'/>
+  <text x='305.25' y='455.00' text-anchor='middle' style='fill: black !important;'>3.98</text>
+  <rect x='328.00' y='439.00' width='41.50' height='30' style='fill: rgb(255,255,237 ) !important;'/>
+  <text x='348.75' y='455.00' text-anchor='middle' style='fill: black !important;'>1.06</text>
+  <rect x='371.50' y='439.00' width='41.50' height='30' style='fill: rgb(254,234,110 ) !important;'/>
+  <text x='392.25' y='455.00' text-anchor='middle' style='fill: black !important;'>1.64</text>
+  <rect x='415.00' y='439.00' width='41.50' height='30' style='fill: rgb(255,141,14 ) !important;'/>
+  <text x='435.75' y='455.00' text-anchor='middle' style='fill: black !important;'>3.56</text>
+  <rect x='458.50' y='439.00' width='41.50' height='30' style='fill: rgb(200,73,0 ) !important;'/>
+  <text x='479.25' y='455.00' text-anchor='middle' style='fill: white !important;'>5.68</text>
+  <rect x='502.00' y='439.00' width='41.50' height='30' style='fill: rgb(231,103,1 ) !important;'/>
+  <text x='522.75' y='455.00' text-anchor='middle' style='fill: black !important;'>4.62</text>
+  <rect x='545.50' y='439.00' width='41.50' height='30' style='fill: rgb(255,151,23 ) !important;'/>
+  <text x='566.25' y='455.00' text-anchor='middle' style='fill: black !important;'>3.38</text>
+  <rect x='589.00' y='439.00' width='41.50' height='30' style='fill: rgb(218,91,0 ) !important;'/>
+  <text x='609.75' y='455.00' text-anchor='middle' style='fill: white !important;'>5.05</text>
+  <rect x='632.50' y='439.00' width='41.50' height='30' style='fill: rgb(205,78,0 ) !important;'/>
+  <text x='653.25' y='455.00' text-anchor='middle' style='fill: white !important;'>5.48</text>
+  <rect x='676.00' y='439.00' width='41.50' height='30' style='fill: rgb(208,81,0 ) !important;'/>
+  <text x='696.75' y='455.00' text-anchor='middle' style='fill: white !important;'>5.39</text>
+  <rect x='719.50' y='439.00' width='41.50' height='30' style='fill: rgb(116,18,7 ) !important;'/>
+  <text x='740.25' y='455.00' text-anchor='middle' style='fill: white !important;'>8.18</text>
+  <rect x='763.00' y='439.00' width='41.50' height='30' style='fill: rgb(186,59,1 ) !important;'/>
+  <text x='783.75' y='455.00' text-anchor='middle' style='fill: white !important;'>6.19</text>
+  <rect x='806.50' y='439.00' width='41.50' height='30' style='fill: rgb(151,26,1 ) !important;'/>
+  <text x='827.25' y='455.00' text-anchor='middle' style='fill: white !important;'>7.31</text>
+  <rect x='850.00' y='439.00' width='41.50' height='30' style='fill: rgb(255,167,39 ) !important;'/>
+  <text x='870.75' y='455.00' text-anchor='middle' style='fill: black !important;'>3.07</text>
+  <rect x='893.50' y='439.00' width='41.50' height='30' style='fill: rgb(255,233,107 ) !important;'/>
+  <text x='914.25' y='455.00' text-anchor='middle' style='fill: black !important;'>1.70</text>
+  <rect x='937.00' y='439.00' width='41.50' height='30' style='fill: rgb(255,233,107 ) !important;'/>
+  <text x='957.75' y='455.00' text-anchor='middle' style='fill: black !important;'>1.70</text>
+  <rect x='980.50' y='439.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1001.25' y='455.00' text-anchor='middle' style='fill: black !important;'>1.00</text>
+  <rect x='1024.00' y='439.00' width='41.50' height='30' style='fill: rgb(255,255,237 ) !important;'/>
+  <text x='1044.75' y='455.00' text-anchor='middle' style='fill: black !important;'>1.06</text>
+  <rect x='1067.50' y='439.00' width='41.50' height='30' style='fill: rgb(254,253,149 ) !important;'/>
+  <text x='1088.25' y='455.00' text-anchor='middle' style='fill: black !important;'>1.22</text>
+  <rect x='1111.00' y='439.00' width='41.50' height='30' style='fill: rgb(255,255,152 ) !important;'/>
+  <text x='1131.75' y='455.00' text-anchor='middle' style='fill: black !important;'>1.19</text>
+  <text x='7' y='480.00'>64-bit integer key, 448-bit value:</text>
+  <text x='7' y='494.00'>Erase nonexisting</text>
+  <rect x='241.00' y='471.00' width='41.50' height='30' style='fill: rgb(254,242,126 ) !important;'/>
+  <text x='261.75' y='487.00' text-anchor='middle' style='fill: black !important;'>1.48</text>
+  <rect x='284.50' y='471.00' width='41.50' height='30' style='fill: rgb(255,149,21 ) !important;'/>
+  <text x='305.25' y='487.00' text-anchor='middle' style='fill: black !important;'>3.40</text>
+  <rect x='328.00' y='471.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='348.75' y='487.00' text-anchor='middle' style='fill: black !important;'>1.00</text>
+  <rect x='371.50' y='471.00' width='41.50' height='30' style='fill: rgb(254,242,126 ) !important;'/>
+  <text x='392.25' y='487.00' text-anchor='middle' style='fill: black !important;'>1.49</text>
+  <rect x='415.00' y='471.00' width='41.50' height='30' style='fill: rgb(255,156,29 ) !important;'/>
+  <text x='435.75' y='487.00' text-anchor='middle' style='fill: black !important;'>3.26</text>
+  <rect x='458.50' y='471.00' width='41.50' height='30' style='fill: rgb(208,81,0 ) !important;'/>
+  <text x='479.25' y='487.00' text-anchor='middle' style='fill: white !important;'>5.38</text>
+  <rect x='502.00' y='471.00' width='41.50' height='30' style='fill: rgb(234,107,1 ) !important;'/>
+  <text x='522.75' y='487.00' text-anchor='middle' style='fill: black !important;'>4.52</text>
+  <rect x='545.50' y='471.00' width='41.50' height='30' style='fill: rgb(255,181,53 ) !important;'/>
+  <text x='566.25' y='487.00' text-anchor='middle' style='fill: black !important;'>2.78</text>
+  <rect x='589.00' y='471.00' width='41.50' height='30' style='fill: rgb(240,113,2 ) !important;'/>
+  <text x='609.75' y='487.00' text-anchor='middle' style='fill: black !important;'>4.29</text>
+  <rect x='632.50' y='471.00' width='41.50' height='30' style='fill: rgb(231,103,1 ) !important;'/>
+  <text x='653.25' y='487.00' text-anchor='middle' style='fill: black !important;'>4.62</text>
+  <rect x='676.00' y='471.00' width='41.50' height='30' style='fill: rgb(201,74,0 ) !important;'/>
+  <text x='696.75' y='487.00' text-anchor='middle' style='fill: white !important;'>5.63</text>
+  <rect x='719.50' y='471.00' width='41.50' height='30' style='fill: rgb(159,33,1 ) !important;'/>
+  <text x='740.25' y='487.00' text-anchor='middle' style='fill: white !important;'>7.04</text>
+  <rect x='763.00' y='471.00' width='41.50' height='30' style='fill: rgb(210,83,0 ) !important;'/>
+  <text x='783.75' y='487.00' text-anchor='middle' style='fill: white !important;'>5.32</text>
+  <rect x='806.50' y='471.00' width='41.50' height='30' style='fill: rgb(183,57,1 ) !important;'/>
+  <text x='827.25' y='487.00' text-anchor='middle' style='fill: white !important;'>6.23</text>
+  <rect x='850.00' y='471.00' width='41.50' height='30' style='fill: rgb(255,179,52 ) !important;'/>
+  <text x='870.75' y='487.00' text-anchor='middle' style='fill: black !important;'>2.82</text>
+  <rect x='893.50' y='471.00' width='41.50' height='30' style='fill: rgb(254,241,123 ) !important;'/>
+  <text x='914.25' y='487.00' text-anchor='middle' style='fill: black !important;'>1.52</text>
+  <rect x='937.00' y='471.00' width='41.50' height='30' style='fill: rgb(254,238,117 ) !important;'/>
+  <text x='957.75' y='487.00' text-anchor='middle' style='fill: black !important;'>1.59</text>
+  <rect x='980.50' y='471.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1001.25' y='487.00' text-anchor='middle' style='fill: black !important;'>1.00</text>
+  <rect x='1024.00' y='471.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1044.75' y='487.00' text-anchor='middle' style='fill: black !important;'>1.00</text>
+  <rect x='1067.50' y='471.00' width='41.50' height='30' style='fill: rgb(255,255,171 ) !important;'/>
+  <text x='1088.25' y='487.00' text-anchor='middle' style='fill: black !important;'>1.16</text>
+  <rect x='1111.00' y='471.00' width='41.50' height='30' style='fill: rgb(255,255,195 ) !important;'/>
+  <text x='1131.75' y='487.00' text-anchor='middle' style='fill: black !important;'>1.14</text>
+  <text x='7' y='512.00'>16-char c-string key, 64-bit value:</text>
+  <text x='7' y='526.00'>Erase nonexisting</text>
+  <rect x='241.00' y='503.00' width='41.50' height='30' style='fill: rgb(255,255,171 ) !important;'/>
+  <text x='261.75' y='519.00' text-anchor='middle' style='fill: black !important;'>1.16</text>
+  <rect x='284.50' y='503.00' width='41.50' height='30' style='fill: rgb(254,239,120 ) !important;'/>
+  <text x='305.25' y='519.00' text-anchor='middle' style='fill: black !important;'>1.55</text>
+  <rect x='328.00' y='503.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='348.75' y='519.00' text-anchor='middle' style='fill: black !important;'>1.00</text>
+  <rect x='371.50' y='503.00' width='41.50' height='30' style='fill: rgb(255,255,171 ) !important;'/>
+  <text x='392.25' y='519.00' text-anchor='middle' style='fill: black !important;'>1.16</text>
+  <rect x='415.00' y='503.00' width='41.50' height='30' style='fill: rgb(255,228,100 ) !important;'/>
+  <text x='435.75' y='519.00' text-anchor='middle' style='fill: black !important;'>1.78</text>
+  <rect x='458.50' y='503.00' width='41.50' height='30' style='fill: rgb(255,214,87 ) !important;'/>
+  <text x='479.25' y='519.00' text-anchor='middle' style='fill: black !important;'>2.08</text>
+  <rect x='502.00' y='503.00' width='41.50' height='30' style='fill: rgb(255,209,82 ) !important;'/>
+  <text x='522.75' y='519.00' text-anchor='middle' style='fill: black !important;'>2.20</text>
+  <rect x='545.50' y='503.00' width='41.50' height='30' style='fill: rgb(254,249,139 ) !important;'/>
+  <text x='566.25' y='519.00' text-anchor='middle' style='fill: black !important;'>1.32</text>
+  <rect x='589.00' y='503.00' width='41.50' height='30' style='fill: rgb(255,188,60 ) !important;'/>
+  <text x='609.75' y='519.00' text-anchor='middle' style='fill: black !important;'>2.65</text>
+  <rect x='632.50' y='503.00' width='41.50' height='30' style='fill: rgb(255,218,90 ) !important;'/>
+  <text x='653.25' y='519.00' text-anchor='middle' style='fill: black !important;'>2.00</text>
+  <rect x='676.00' y='503.00' width='41.50' height='30' style='fill: rgb(255,181,53 ) !important;'/>
+  <text x='696.75' y='519.00' text-anchor='middle' style='fill: black !important;'>2.77</text>
+  <rect x='719.50' y='503.00' width='41.50' height='30' style='fill: rgb(255,194,67 ) !important;'/>
+  <text x='740.25' y='519.00' text-anchor='middle' style='fill: black !important;'>2.52</text>
+  <rect x='763.00' y='503.00' width='41.50' height='30' style='fill: rgb(255,198,70 ) !important;'/>
+  <text x='783.75' y='519.00' text-anchor='middle' style='fill: black !important;'>2.41</text>
+  <rect x='806.50' y='503.00' width='41.50' height='30' style='fill: rgb(255,203,75 ) !important;'/>
+  <text x='827.25' y='519.00' text-anchor='middle' style='fill: black !important;'>2.33</text>
+  <rect x='850.00' y='503.00' width='41.50' height='30' style='fill: rgb(254,250,142 ) !important;'/>
+  <text x='870.75' y='519.00' text-anchor='middle' style='fill: black !important;'>1.31</text>
+  <rect x='893.50' y='503.00' width='41.50' height='30' style='fill: rgb(254,253,149 ) !important;'/>
+  <text x='914.25' y='519.00' text-anchor='middle' style='fill: black !important;'>1.24</text>
+  <rect x='937.00' y='503.00' width='41.50' height='30' style='fill: rgb(254,253,149 ) !important;'/>
+  <text x='957.75' y='519.00' text-anchor='middle' style='fill: black !important;'>1.24</text>
+  <rect x='980.50' y='503.00' width='41.50' height='30' style='fill: rgb(255,255,217 ) !important;'/>
+  <text x='1001.25' y='519.00' text-anchor='middle' style='fill: black !important;'>1.11</text>
+  <rect x='1024.00' y='503.00' width='41.50' height='30' style='fill: rgb(255,255,237 ) !important;'/>
+  <text x='1044.75' y='519.00' text-anchor='middle' style='fill: black !important;'>1.05</text>
+  <rect x='1067.50' y='503.00' width='41.50' height='30' style='fill: rgb(255,255,195 ) !important;'/>
+  <text x='1088.25' y='519.00' text-anchor='middle' style='fill: black !important;'>1.11</text>
+  <rect x='1111.00' y='503.00' width='41.50' height='30' style='fill: rgb(255,255,237 ) !important;'/>
+  <text x='1131.75' y='519.00' text-anchor='middle' style='fill: black !important;'>1.07</text>
+  <text x='7' y='544.00'>32-bit integer key, 32-bit value:</text>
+  <text x='7' y='558.00'>Look up existing</text>
+  <rect x='241.00' y='535.00' width='41.50' height='30' style='fill: rgb(255,255,237 ) !important;'/>
+  <text x='261.75' y='551.00' text-anchor='middle' style='fill: black !important;'>1.07</text>
+  <rect x='284.50' y='535.00' width='41.50' height='30' style='fill: rgb(255,167,39 ) !important;'/>
+  <text x='305.25' y='551.00' text-anchor='middle' style='fill: black !important;'>3.08</text>
+  <rect x='328.00' y='535.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='348.75' y='551.00' text-anchor='middle' style='fill: black !important;'>1.00</text>
+  <rect x='371.50' y='535.00' width='41.50' height='30' style='fill: rgb(255,255,217 ) !important;'/>
+  <text x='392.25' y='551.00' text-anchor='middle' style='fill: black !important;'>1.10</text>
+  <rect x='415.00' y='535.00' width='41.50' height='30' style='fill: rgb(255,224,97 ) !important;'/>
+  <text x='435.75' y='551.00' text-anchor='middle' style='fill: black !important;'>1.85</text>
+  <rect x='458.50' y='535.00' width='41.50' height='30' style='fill: rgb(255,186,58 ) !important;'/>
+  <text x='479.25' y='551.00' text-anchor='middle' style='fill: black !important;'>2.67</text>
+  <rect x='502.00' y='535.00' width='41.50' height='30' style='fill: rgb(255,176,48 ) !important;'/>
+  <text x='522.75' y='551.00' text-anchor='middle' style='fill: black !important;'>2.91</text>
+  <rect x='545.50' y='535.00' width='41.50' height='30' style='fill: rgb(255,233,107 ) !important;'/>
+  <text x='566.25' y='551.00' text-anchor='middle' style='fill: black !important;'>1.68</text>
+  <rect x='589.00' y='535.00' width='41.50' height='30' style='fill: rgb(255,204,77 ) !important;'/>
+  <text x='609.75' y='551.00' text-anchor='middle' style='fill: black !important;'>2.29</text>
+  <rect x='632.50' y='535.00' width='41.50' height='30' style='fill: rgb(255,213,85 ) !important;'/>
+  <text x='653.25' y='551.00' text-anchor='middle' style='fill: black !important;'>2.12</text>
+  <rect x='676.00' y='535.00' width='41.50' height='30' style='fill: rgb(255,219,92 ) !important;'/>
+  <text x='696.75' y='551.00' text-anchor='middle' style='fill: black !important;'>1.98</text>
+  <rect x='719.50' y='535.00' width='41.50' height='30' style='fill: rgb(255,153,25 ) !important;'/>
+  <text x='740.25' y='551.00' text-anchor='middle' style='fill: black !important;'>3.33</text>
+  <rect x='763.00' y='535.00' width='41.50' height='30' style='fill: rgb(255,198,70 ) !important;'/>
+  <text x='783.75' y='551.00' text-anchor='middle' style='fill: black !important;'>2.42</text>
+  <rect x='806.50' y='535.00' width='41.50' height='30' style='fill: rgb(245,118,3 ) !important;'/>
+  <text x='827.25' y='551.00' text-anchor='middle' style='fill: black !important;'>4.11</text>
+  <rect x='850.00' y='535.00' width='41.50' height='30' style='fill: rgb(255,226,98 ) !important;'/>
+  <text x='870.75' y='551.00' text-anchor='middle' style='fill: black !important;'>1.82</text>
+  <rect x='893.50' y='535.00' width='41.50' height='30' style='fill: rgb(229,101,0 ) !important;'/>
+  <text x='914.25' y='551.00' text-anchor='middle' style='fill: black !important;'>4.70</text>
+  <rect x='937.00' y='535.00' width='41.50' height='30' style='fill: rgb(254,252,145 ) !important;'/>
+  <text x='957.75' y='551.00' text-anchor='middle' style='fill: black !important;'>1.28</text>
+  <rect x='980.50' y='535.00' width='41.50' height='30' style='fill: rgb(254,252,145 ) !important;'/>
+  <text x='1001.25' y='551.00' text-anchor='middle' style='fill: black !important;'>1.26</text>
+  <rect x='1024.00' y='535.00' width='41.50' height='30' style='fill: rgb(254,250,142 ) !important;'/>
+  <text x='1044.75' y='551.00' text-anchor='middle' style='fill: black !important;'>1.31</text>
+  <rect x='1067.50' y='535.00' width='41.50' height='30' style='fill: rgb(255,255,195 ) !important;'/>
+  <text x='1088.25' y='551.00' text-anchor='middle' style='fill: black !important;'>1.11</text>
+  <rect x='1111.00' y='535.00' width='41.50' height='30' style='fill: rgb(255,255,217 ) !important;'/>
+  <text x='1131.75' y='551.00' text-anchor='middle' style='fill: black !important;'>1.10</text>
+  <text x='7' y='576.00'>64-bit integer key, 448-bit value:</text>
+  <text x='7' y='590.00'>Look up existing</text>
+  <rect x='241.00' y='567.00' width='41.50' height='30' style='fill: rgb(254,242,126 ) !important;'/>
+  <text x='261.75' y='583.00' text-anchor='middle' style='fill: black !important;'>1.46</text>
+  <rect x='284.50' y='567.00' width='41.50' height='30' style='fill: rgb(255,191,63 ) !important;'/>
+  <text x='305.25' y='583.00' text-anchor='middle' style='fill: black !important;'>2.56</text>
+  <rect x='328.00' y='567.00' width='41.50' height='30' style='fill: rgb(254,252,145 ) !important;'/>
+  <text x='348.75' y='583.00' text-anchor='middle' style='fill: black !important;'>1.28</text>
+  <rect x='371.50' y='567.00' width='41.50' height='30' style='fill: rgb(254,246,132 ) !important;'/>
+  <text x='392.25' y='583.00' text-anchor='middle' style='fill: black !important;'>1.41</text>
+  <rect x='415.00' y='567.00' width='41.50' height='30' style='fill: rgb(255,216,88 ) !important;'/>
+  <text x='435.75' y='583.00' text-anchor='middle' style='fill: black !important;'>2.04</text>
+  <rect x='458.50' y='567.00' width='41.50' height='30' style='fill: rgb(255,198,70 ) !important;'/>
+  <text x='479.25' y='583.00' text-anchor='middle' style='fill: black !important;'>2.42</text>
+  <rect x='502.00' y='567.00' width='41.50' height='30' style='fill: rgb(255,184,57 ) !important;'/>
+  <text x='522.75' y='583.00' text-anchor='middle' style='fill: black !important;'>2.71</text>
+  <rect x='545.50' y='567.00' width='41.50' height='30' style='fill: rgb(255,228,100 ) !important;'/>
+  <text x='566.25' y='583.00' text-anchor='middle' style='fill: black !important;'>1.79</text>
+  <rect x='589.00' y='567.00' width='41.50' height='30' style='fill: rgb(255,209,82 ) !important;'/>
+  <text x='609.75' y='583.00' text-anchor='middle' style='fill: black !important;'>2.17</text>
+  <rect x='632.50' y='567.00' width='41.50' height='30' style='fill: rgb(255,226,98 ) !important;'/>
+  <text x='653.25' y='583.00' text-anchor='middle' style='fill: black !important;'>1.83</text>
+  <rect x='676.00' y='567.00' width='41.50' height='30' style='fill: rgb(255,214,87 ) !important;'/>
+  <text x='696.75' y='583.00' text-anchor='middle' style='fill: black !important;'>2.09</text>
+  <rect x='719.50' y='567.00' width='41.50' height='30' style='fill: rgb(255,181,53 ) !important;'/>
+  <text x='740.25' y='583.00' text-anchor='middle' style='fill: black !important;'>2.79</text>
+  <rect x='763.00' y='567.00' width='41.50' height='30' style='fill: rgb(255,198,70 ) !important;'/>
+  <text x='783.75' y='583.00' text-anchor='middle' style='fill: black !important;'>2.44</text>
+  <rect x='806.50' y='567.00' width='41.50' height='30' style='fill: rgb(255,147,19 ) !important;'/>
+  <text x='827.25' y='583.00' text-anchor='middle' style='fill: black !important;'>3.45</text>
+  <rect x='850.00' y='567.00' width='41.50' height='30' style='fill: rgb(255,221,93 ) !important;'/>
+  <text x='870.75' y='583.00' text-anchor='middle' style='fill: black !important;'>1.92</text>
+  <rect x='893.50' y='567.00' width='41.50' height='30' style='fill: rgb(250,124,5 ) !important;'/>
+  <text x='914.25' y='583.00' text-anchor='middle' style='fill: black !important;'>3.95</text>
+  <rect x='937.00' y='567.00' width='41.50' height='30' style='fill: rgb(255,255,152 ) !important;'/>
+  <text x='957.75' y='583.00' text-anchor='middle' style='fill: black !important;'>1.18</text>
+  <rect x='980.50' y='567.00' width='41.50' height='30' style='fill: rgb(254,253,149 ) !important;'/>
+  <text x='1001.25' y='583.00' text-anchor='middle' style='fill: black !important;'>1.22</text>
+  <rect x='1024.00' y='567.00' width='41.50' height='30' style='fill: rgb(255,255,152 ) !important;'/>
+  <text x='1044.75' y='583.00' text-anchor='middle' style='fill: black !important;'>1.20</text>
+  <rect x='1067.50' y='567.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1088.25' y='583.00' text-anchor='middle' style='fill: black !important;'>1.02</text>
+  <rect x='1111.00' y='567.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1131.75' y='583.00' text-anchor='middle' style='fill: black !important;'>1.00</text>
+  <text x='7' y='608.00'>16-char c-string key, 64-bit value:</text>
+  <text x='7' y='622.00'>Look up existing</text>
+  <rect x='241.00' y='599.00' width='41.50' height='30' style='fill: rgb(255,255,237 ) !important;'/>
+  <text x='261.75' y='615.00' text-anchor='middle' style='fill: black !important;'>1.06</text>
+  <rect x='284.50' y='599.00' width='41.50' height='30' style='fill: rgb(254,241,123 ) !important;'/>
+  <text x='305.25' y='615.00' text-anchor='middle' style='fill: black !important;'>1.50</text>
+  <rect x='328.00' y='599.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='348.75' y='615.00' text-anchor='middle' style='fill: black !important;'>1.02</text>
+  <rect x='371.50' y='599.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='392.25' y='615.00' text-anchor='middle' style='fill: black !important;'>1.01</text>
+  <rect x='415.00' y='599.00' width='41.50' height='30' style='fill: rgb(254,242,126 ) !important;'/>
+  <text x='435.75' y='615.00' text-anchor='middle' style='fill: black !important;'>1.47</text>
+  <rect x='458.50' y='599.00' width='41.50' height='30' style='fill: rgb(254,238,117 ) !important;'/>
+  <text x='479.25' y='615.00' text-anchor='middle' style='fill: black !important;'>1.60</text>
+  <rect x='502.00' y='599.00' width='41.50' height='30' style='fill: rgb(255,213,85 ) !important;'/>
+  <text x='522.75' y='615.00' text-anchor='middle' style='fill: black !important;'>2.10</text>
+  <rect x='545.50' y='599.00' width='41.50' height='30' style='fill: rgb(255,255,171 ) !important;'/>
+  <text x='566.25' y='615.00' text-anchor='middle' style='fill: black !important;'>1.16</text>
+  <rect x='589.00' y='599.00' width='41.50' height='30' style='fill: rgb(255,231,104 ) !important;'/>
+  <text x='609.75' y='615.00' text-anchor='middle' style='fill: black !important;'>1.71</text>
+  <rect x='632.50' y='599.00' width='41.50' height='30' style='fill: rgb(254,252,145 ) !important;'/>
+  <text x='653.25' y='615.00' text-anchor='middle' style='fill: black !important;'>1.25</text>
+  <rect x='676.00' y='599.00' width='41.50' height='30' style='fill: rgb(254,236,113 ) !important;'/>
+  <text x='696.75' y='615.00' text-anchor='middle' style='fill: black !important;'>1.61</text>
+  <rect x='719.50' y='599.00' width='41.50' height='30' style='fill: rgb(254,241,123 ) !important;'/>
+  <text x='740.25' y='615.00' text-anchor='middle' style='fill: black !important;'>1.50</text>
+  <rect x='763.00' y='599.00' width='41.50' height='30' style='fill: rgb(254,238,117 ) !important;'/>
+  <text x='783.75' y='615.00' text-anchor='middle' style='fill: black !important;'>1.57</text>
+  <rect x='806.50' y='599.00' width='41.50' height='30' style='fill: rgb(255,219,92 ) !important;'/>
+  <text x='827.25' y='615.00' text-anchor='middle' style='fill: black !important;'>1.98</text>
+  <rect x='850.00' y='599.00' width='41.50' height='30' style='fill: rgb(254,253,149 ) !important;'/>
+  <text x='870.75' y='615.00' text-anchor='middle' style='fill: black !important;'>1.22</text>
+  <rect x='893.50' y='599.00' width='41.50' height='30' style='fill: rgb(255,221,93 ) !important;'/>
+  <text x='914.25' y='615.00' text-anchor='middle' style='fill: black !important;'>1.94</text>
+  <rect x='937.00' y='599.00' width='41.50' height='30' style='fill: rgb(255,255,217 ) !important;'/>
+  <text x='957.75' y='615.00' text-anchor='middle' style='fill: black !important;'>1.09</text>
+  <rect x='980.50' y='599.00' width='41.50' height='30' style='fill: rgb(255,255,195 ) !important;'/>
+  <text x='1001.25' y='615.00' text-anchor='middle' style='fill: black !important;'>1.12</text>
+  <rect x='1024.00' y='599.00' width='41.50' height='30' style='fill: rgb(255,255,217 ) !important;'/>
+  <text x='1044.75' y='615.00' text-anchor='middle' style='fill: black !important;'>1.09</text>
+  <rect x='1067.50' y='599.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1088.25' y='615.00' text-anchor='middle' style='fill: black !important;'>1.01</text>
+  <rect x='1111.00' y='599.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1131.75' y='615.00' text-anchor='middle' style='fill: black !important;'>1.00</text>
+  <text x='7' y='640.00'>32-bit integer key, 32-bit value:</text>
+  <text x='7' y='654.00'>Look up nonexisting</text>
+  <rect x='241.00' y='631.00' width='41.50' height='30' style='fill: rgb(254,236,113 ) !important;'/>
+  <text x='261.75' y='647.00' text-anchor='middle' style='fill: black !important;'>1.63</text>
+  <rect x='284.50' y='631.00' width='41.50' height='30' style='fill: rgb(255,211,84 ) !important;'/>
+  <text x='305.25' y='647.00' text-anchor='middle' style='fill: black !important;'>2.14</text>
+  <rect x='328.00' y='631.00' width='41.50' height='30' style='fill: rgb(255,255,237 ) !important;'/>
+  <text x='348.75' y='647.00' text-anchor='middle' style='fill: black !important;'>1.05</text>
+  <rect x='371.50' y='631.00' width='41.50' height='30' style='fill: rgb(254,239,120 ) !important;'/>
+  <text x='392.25' y='647.00' text-anchor='middle' style='fill: black !important;'>1.55</text>
+  <rect x='415.00' y='631.00' width='41.50' height='30' style='fill: rgb(255,151,23 ) !important;'/>
+  <text x='435.75' y='647.00' text-anchor='middle' style='fill: black !important;'>3.40</text>
+  <rect x='458.50' y='631.00' width='41.50' height='30' style='fill: rgb(213,86,0 ) !important;'/>
+  <text x='479.25' y='647.00' text-anchor='middle' style='fill: white !important;'>5.21</text>
+  <rect x='502.00' y='631.00' width='41.50' height='30' style='fill: rgb(236,109,1 ) !important;'/>
+  <text x='522.75' y='647.00' text-anchor='middle' style='fill: black !important;'>4.44</text>
+  <rect x='545.50' y='631.00' width='41.50' height='30' style='fill: rgb(255,154,27 ) !important;'/>
+  <text x='566.25' y='647.00' text-anchor='middle' style='fill: black !important;'>3.30</text>
+  <rect x='589.00' y='631.00' width='41.50' height='30' style='fill: rgb(225,97,0 ) !important;'/>
+  <text x='609.75' y='647.00' text-anchor='middle' style='fill: black !important;'>4.84</text>
+  <rect x='632.50' y='631.00' width='41.50' height='30' style='fill: rgb(212,85,0 ) !important;'/>
+  <text x='653.25' y='647.00' text-anchor='middle' style='fill: white !important;'>5.25</text>
+  <rect x='676.00' y='631.00' width='41.50' height='30' style='fill: rgb(213,86,0 ) !important;'/>
+  <text x='696.75' y='647.00' text-anchor='middle' style='fill: white !important;'>5.20</text>
+  <rect x='719.50' y='631.00' width='41.50' height='30' style='fill: rgb(140,24,5 ) !important;'/>
+  <text x='740.25' y='647.00' text-anchor='middle' style='fill: white !important;'>7.60</text>
+  <rect x='763.00' y='631.00' width='41.50' height='30' style='fill: rgb(180,54,1 ) !important;'/>
+  <text x='783.75' y='647.00' text-anchor='middle' style='fill: white !important;'>6.33</text>
+  <rect x='806.50' y='631.00' width='41.50' height='30' style='fill: rgb(154,28,1 ) !important;'/>
+  <text x='827.25' y='647.00' text-anchor='middle' style='fill: white !important;'>7.25</text>
+  <rect x='850.00' y='631.00' width='41.50' height='30' style='fill: rgb(255,149,21 ) !important;'/>
+  <text x='870.75' y='647.00' text-anchor='middle' style='fill: black !important;'>3.41</text>
+  <rect x='893.50' y='631.00' width='41.50' height='30' style='fill: rgb(255,224,97 ) !important;'/>
+  <text x='914.25' y='647.00' text-anchor='middle' style='fill: black !important;'>1.86</text>
+  <rect x='937.00' y='631.00' width='41.50' height='30' style='fill: rgb(255,229,102 ) !important;'/>
+  <text x='957.75' y='647.00' text-anchor='middle' style='fill: black !important;'>1.75</text>
+  <rect x='980.50' y='631.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1001.25' y='647.00' text-anchor='middle' style='fill: black !important;'>1.00</text>
+  <rect x='1024.00' y='631.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1044.75' y='647.00' text-anchor='middle' style='fill: black !important;'>1.02</text>
+  <rect x='1067.50' y='631.00' width='41.50' height='30' style='fill: rgb(255,255,152 ) !important;'/>
+  <text x='1088.25' y='647.00' text-anchor='middle' style='fill: black !important;'>1.19</text>
+  <rect x='1111.00' y='631.00' width='41.50' height='30' style='fill: rgb(255,255,152 ) !important;'/>
+  <text x='1131.75' y='647.00' text-anchor='middle' style='fill: black !important;'>1.18</text>
+  <text x='7' y='672.00'>64-bit integer key, 448-bit value:</text>
+  <text x='7' y='686.00'>Look up nonexisting</text>
+  <rect x='241.00' y='663.00' width='41.50' height='30' style='fill: rgb(254,239,120 ) !important;'/>
+  <text x='261.75' y='679.00' text-anchor='middle' style='fill: black !important;'>1.53</text>
+  <rect x='284.50' y='663.00' width='41.50' height='30' style='fill: rgb(255,221,93 ) !important;'/>
+  <text x='305.25' y='679.00' text-anchor='middle' style='fill: black !important;'>1.93</text>
+  <rect x='328.00' y='663.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='348.75' y='679.00' text-anchor='middle' style='fill: black !important;'>1.01</text>
+  <rect x='371.50' y='663.00' width='41.50' height='30' style='fill: rgb(254,241,123 ) !important;'/>
+  <text x='392.25' y='679.00' text-anchor='middle' style='fill: black !important;'>1.51</text>
+  <rect x='415.00' y='663.00' width='41.50' height='30' style='fill: rgb(255,154,27 ) !important;'/>
+  <text x='435.75' y='679.00' text-anchor='middle' style='fill: black !important;'>3.30</text>
+  <rect x='458.50' y='663.00' width='41.50' height='30' style='fill: rgb(216,89,0 ) !important;'/>
+  <text x='479.25' y='679.00' text-anchor='middle' style='fill: white !important;'>5.12</text>
+  <rect x='502.00' y='663.00' width='41.50' height='30' style='fill: rgb(237,110,1 ) !important;'/>
+  <text x='522.75' y='679.00' text-anchor='middle' style='fill: black !important;'>4.40</text>
+  <rect x='545.50' y='663.00' width='41.50' height='30' style='fill: rgb(255,189,62 ) !important;'/>
+  <text x='566.25' y='679.00' text-anchor='middle' style='fill: black !important;'>2.59</text>
+  <rect x='589.00' y='663.00' width='41.50' height='30' style='fill: rgb(242,115,2 ) !important;'/>
+  <text x='609.75' y='679.00' text-anchor='middle' style='fill: black !important;'>4.22</text>
+  <rect x='632.50' y='663.00' width='41.50' height='30' style='fill: rgb(227,99,0 ) !important;'/>
+  <text x='653.25' y='679.00' text-anchor='middle' style='fill: black !important;'>4.77</text>
+  <rect x='676.00' y='663.00' width='41.50' height='30' style='fill: rgb(200,73,0 ) !important;'/>
+  <text x='696.75' y='679.00' text-anchor='middle' style='fill: white !important;'>5.67</text>
+  <rect x='719.50' y='663.00' width='41.50' height='30' style='fill: rgb(169,43,1 ) !important;'/>
+  <text x='740.25' y='679.00' text-anchor='middle' style='fill: white !important;'>6.72</text>
+  <rect x='763.00' y='663.00' width='41.50' height='30' style='fill: rgb(189,62,1 ) !important;'/>
+  <text x='783.75' y='679.00' text-anchor='middle' style='fill: white !important;'>6.06</text>
+  <rect x='806.50' y='663.00' width='41.50' height='30' style='fill: rgb(179,53,1 ) !important;'/>
+  <text x='827.25' y='679.00' text-anchor='middle' style='fill: white !important;'>6.39</text>
+  <rect x='850.00' y='663.00' width='41.50' height='30' style='fill: rgb(255,172,45 ) !important;'/>
+  <text x='870.75' y='679.00' text-anchor='middle' style='fill: black !important;'>2.95</text>
+  <rect x='893.50' y='663.00' width='41.50' height='30' style='fill: rgb(255,231,104 ) !important;'/>
+  <text x='914.25' y='679.00' text-anchor='middle' style='fill: black !important;'>1.72</text>
+  <rect x='937.00' y='663.00' width='41.50' height='30' style='fill: rgb(254,241,123 ) !important;'/>
+  <text x='957.75' y='679.00' text-anchor='middle' style='fill: black !important;'>1.51</text>
+  <rect x='980.50' y='663.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1001.25' y='679.00' text-anchor='middle' style='fill: black !important;'>1.00</text>
+  <rect x='1024.00' y='663.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1044.75' y='679.00' text-anchor='middle' style='fill: black !important;'>1.01</text>
+  <rect x='1067.50' y='663.00' width='41.50' height='30' style='fill: rgb(255,255,171 ) !important;'/>
+  <text x='1088.25' y='679.00' text-anchor='middle' style='fill: black !important;'>1.15</text>
+  <rect x='1111.00' y='663.00' width='41.50' height='30' style='fill: rgb(255,255,171 ) !important;'/>
+  <text x='1131.75' y='679.00' text-anchor='middle' style='fill: black !important;'>1.15</text>
+  <text x='7' y='704.00'>16-char c-string key, 64-bit value:</text>
+  <text x='7' y='718.00'>Look up nonexisting</text>
+  <rect x='241.00' y='695.00' width='41.50' height='30' style='fill: rgb(255,255,195 ) !important;'/>
+  <text x='261.75' y='711.00' text-anchor='middle' style='fill: black !important;'>1.13</text>
+  <rect x='284.50' y='695.00' width='41.50' height='30' style='fill: rgb(254,252,145 ) !important;'/>
+  <text x='305.25' y='711.00' text-anchor='middle' style='fill: black !important;'>1.26</text>
+  <rect x='328.00' y='695.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='348.75' y='711.00' text-anchor='middle' style='fill: black !important;'>1.01</text>
+  <rect x='371.50' y='695.00' width='41.50' height='30' style='fill: rgb(255,255,171 ) !important;'/>
+  <text x='392.25' y='711.00' text-anchor='middle' style='fill: black !important;'>1.15</text>
+  <rect x='415.00' y='695.00' width='41.50' height='30' style='fill: rgb(255,228,100 ) !important;'/>
+  <text x='435.75' y='711.00' text-anchor='middle' style='fill: black !important;'>1.80</text>
+  <rect x='458.50' y='695.00' width='41.50' height='30' style='fill: rgb(255,226,98 ) !important;'/>
+  <text x='479.25' y='711.00' text-anchor='middle' style='fill: black !important;'>1.83</text>
+  <rect x='502.00' y='695.00' width='41.50' height='30' style='fill: rgb(255,213,85 ) !important;'/>
+  <text x='522.75' y='711.00' text-anchor='middle' style='fill: black !important;'>2.11</text>
+  <rect x='545.50' y='695.00' width='41.50' height='30' style='fill: rgb(254,250,142 ) !important;'/>
+  <text x='566.25' y='711.00' text-anchor='middle' style='fill: black !important;'>1.29</text>
+  <rect x='589.00' y='695.00' width='41.50' height='30' style='fill: rgb(255,188,60 ) !important;'/>
+  <text x='609.75' y='711.00' text-anchor='middle' style='fill: black !important;'>2.64</text>
+  <rect x='632.50' y='695.00' width='41.50' height='30' style='fill: rgb(255,221,93 ) !important;'/>
+  <text x='653.25' y='711.00' text-anchor='middle' style='fill: black !important;'>1.93</text>
+  <rect x='676.00' y='695.00' width='41.50' height='30' style='fill: rgb(255,179,52 ) !important;'/>
+  <text x='696.75' y='711.00' text-anchor='middle' style='fill: black !important;'>2.82</text>
+  <rect x='719.50' y='695.00' width='41.50' height='30' style='fill: rgb(255,198,70 ) !important;'/>
+  <text x='740.25' y='711.00' text-anchor='middle' style='fill: black !important;'>2.42</text>
+  <rect x='763.00' y='695.00' width='41.50' height='30' style='fill: rgb(255,196,69 ) !important;'/>
+  <text x='783.75' y='711.00' text-anchor='middle' style='fill: black !important;'>2.47</text>
+  <rect x='806.50' y='695.00' width='41.50' height='30' style='fill: rgb(255,204,77 ) !important;'/>
+  <text x='827.25' y='711.00' text-anchor='middle' style='fill: black !important;'>2.30</text>
+  <rect x='850.00' y='695.00' width='41.50' height='30' style='fill: rgb(254,247,136 ) !important;'/>
+  <text x='870.75' y='711.00' text-anchor='middle' style='fill: black !important;'>1.36</text>
+  <rect x='893.50' y='695.00' width='41.50' height='30' style='fill: rgb(254,250,142 ) !important;'/>
+  <text x='914.25' y='711.00' text-anchor='middle' style='fill: black !important;'>1.29</text>
+  <rect x='937.00' y='695.00' width='41.50' height='30' style='fill: rgb(254,253,149 ) !important;'/>
+  <text x='957.75' y='711.00' text-anchor='middle' style='fill: black !important;'>1.21</text>
+  <rect x='980.50' y='695.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1001.25' y='711.00' text-anchor='middle' style='fill: black !important;'>1.00</text>
+  <rect x='1024.00' y='695.00' width='41.50' height='30' style='fill: rgb(255,255,217 ) !important;'/>
+  <text x='1044.75' y='711.00' text-anchor='middle' style='fill: black !important;'>1.09</text>
+  <rect x='1067.50' y='695.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1088.25' y='711.00' text-anchor='middle' style='fill: black !important;'>1.02</text>
+  <rect x='1111.00' y='695.00' width='41.50' height='30' style='fill: rgb(255,255,237 ) !important;'/>
+  <text x='1131.75' y='711.00' text-anchor='middle' style='fill: black !important;'>1.04</text>
+  <text x='7' y='736.00'>32-bit integer key, 32-bit value:</text>
+  <text x='7' y='750.00'>Iterate</text>
+  <rect x='241.00' y='727.00' width='41.50' height='30' style='fill: rgb(207,80,0 ) !important;'/>
+  <text x='261.75' y='743.00' text-anchor='middle' style='fill: white !important;'>5.44</text>
+  <rect x='284.50' y='727.00' width='41.50' height='30' style='fill: rgb(254,249,139 ) !important;'/>
+  <text x='305.25' y='743.00' text-anchor='middle' style='fill: black !important;'>1.32</text>
+  <rect x='328.00' y='727.00' width='41.50' height='30' style='fill: rgb(255,169,41 ) !important;'/>
+  <text x='348.75' y='743.00' text-anchor='middle' style='fill: black !important;'>3.04</text>
+  <rect x='371.50' y='727.00' width='41.50' height='30' style='fill: rgb(255,188,60 ) !important;'/>
+  <text x='392.25' y='743.00' text-anchor='middle' style='fill: black !important;'>2.64</text>
+  <rect x='415.00' y='727.00' width='41.50' height='30' style='fill: rgb(82,2,1 ) !important;'/>
+  <text x='435.75' y='743.00' text-anchor='middle' style='fill: white !important;'>9.14</text>
+  <rect x='458.50' y='727.00' width='41.50' height='30' style='fill: rgb(24,17,16 ) !important;'/>
+  <text x='479.25' y='743.00' text-anchor='middle' style='fill: white !important;'>12.39</text>
+  <rect x='502.00' y='727.00' width='41.50' height='30' style='fill: rgb(115,17,7 ) !important;'/>
+  <text x='522.75' y='743.00' text-anchor='middle' style='fill: white !important;'>8.23</text>
+  <rect x='545.50' y='727.00' width='41.50' height='30' style='fill: rgb(197,70,0 ) !important;'/>
+  <text x='566.25' y='743.00' text-anchor='middle' style='fill: white !important;'>5.77</text>
+  <rect x='589.00' y='727.00' width='41.50' height='30' style='fill: rgb(68,0,0 ) !important;'/>
+  <text x='609.75' y='743.00' text-anchor='middle' style='fill: white !important;'>9.47</text>
+  <rect x='632.50' y='727.00' width='41.50' height='30' style='fill: rgb(90,6,2 ) !important;'/>
+  <text x='653.25' y='743.00' text-anchor='middle' style='fill: white !important;'>8.87</text>
+  <rect x='676.00' y='727.00' width='41.50' height='30' style='fill: rgb(102,12,5 ) !important;'/>
+  <text x='696.75' y='743.00' text-anchor='middle' style='fill: white !important;'>8.58</text>
+  <rect x='719.50' y='727.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='740.25' y='743.00' text-anchor='middle' style='fill: black !important;'>1.00</text>
+  <rect x='763.00' y='727.00' width='41.50' height='30' style='fill: rgb(137,23,6 ) !important;'/>
+  <text x='783.75' y='743.00' text-anchor='middle' style='fill: white !important;'>7.64</text>
+  <rect x='806.50' y='727.00' width='41.50' height='30' style='fill: rgb(255,177,50 ) !important;'/>
+  <text x='827.25' y='743.00' text-anchor='middle' style='fill: black !important;'>2.87</text>
+  <rect x='850.00' y='727.00' width='41.50' height='30' style='fill: rgb(244,117,3 ) !important;'/>
+  <text x='870.75' y='743.00' text-anchor='middle' style='fill: black !important;'>4.17</text>
+  <rect x='893.50' y='727.00' width='41.50' height='30' style='fill: rgb(255,211,84 ) !important;'/>
+  <text x='914.25' y='743.00' text-anchor='middle' style='fill: black !important;'>2.16</text>
+  <rect x='937.00' y='727.00' width='41.50' height='30' style='fill: rgb(255,231,104 ) !important;'/>
+  <text x='957.75' y='743.00' text-anchor='middle' style='fill: black !important;'>1.72</text>
+  <rect x='980.50' y='727.00' width='41.50' height='30' style='fill: rgb(254,246,132 ) !important;'/>
+  <text x='1001.25' y='743.00' text-anchor='middle' style='fill: black !important;'>1.42</text>
+  <rect x='1024.00' y='727.00' width='41.50' height='30' style='fill: rgb(255,231,104 ) !important;'/>
+  <text x='1044.75' y='743.00' text-anchor='middle' style='fill: black !important;'>1.73</text>
+  <rect x='1067.50' y='727.00' width='41.50' height='30' style='fill: rgb(254,249,139 ) !important;'/>
+  <text x='1088.25' y='743.00' text-anchor='middle' style='fill: black !important;'>1.34</text>
+  <rect x='1111.00' y='727.00' width='41.50' height='30' style='fill: rgb(254,247,136 ) !important;'/>
+  <text x='1131.75' y='743.00' text-anchor='middle' style='fill: black !important;'>1.38</text>
+  <text x='7' y='768.00'>64-bit integer key, 448-bit value:</text>
+  <text x='7' y='782.00'>Iterate</text>
+  <rect x='241.00' y='759.00' width='41.50' height='30' style='fill: rgb(237,110,1 ) !important;'/>
+  <text x='261.75' y='775.00' text-anchor='middle' style='fill: black !important;'>4.40</text>
+  <rect x='284.50' y='759.00' width='41.50' height='30' style='fill: rgb(254,253,149 ) !important;'/>
+  <text x='305.25' y='775.00' text-anchor='middle' style='fill: black !important;'>1.21</text>
+  <rect x='328.00' y='759.00' width='41.50' height='30' style='fill: rgb(255,169,41 ) !important;'/>
+  <text x='348.75' y='775.00' text-anchor='middle' style='fill: black !important;'>3.03</text>
+  <rect x='371.50' y='759.00' width='41.50' height='30' style='fill: rgb(255,177,50 ) !important;'/>
+  <text x='392.25' y='775.00' text-anchor='middle' style='fill: black !important;'>2.86</text>
+  <rect x='415.00' y='759.00' width='41.50' height='30' style='fill: rgb(153,27,1 ) !important;'/>
+  <text x='435.75' y='775.00' text-anchor='middle' style='fill: white !important;'>7.25</text>
+  <rect x='458.50' y='759.00' width='41.50' height='30' style='fill: rgb(24,17,16 ) !important;'/>
+  <text x='479.25' y='775.00' text-anchor='middle' style='fill: white !important;'>14.43</text>
+  <rect x='502.00' y='759.00' width='41.50' height='30' style='fill: rgb(192,65,1 ) !important;'/>
+  <text x='522.75' y='775.00' text-anchor='middle' style='fill: white !important;'>5.97</text>
+  <rect x='545.50' y='759.00' width='41.50' height='30' style='fill: rgb(210,83,0 ) !important;'/>
+  <text x='566.25' y='775.00' text-anchor='middle' style='fill: white !important;'>5.33</text>
+  <rect x='589.00' y='759.00' width='41.50' height='30' style='fill: rgb(156,30,1 ) !important;'/>
+  <text x='609.75' y='775.00' text-anchor='middle' style='fill: white !important;'>7.15</text>
+  <rect x='632.50' y='759.00' width='41.50' height='30' style='fill: rgb(140,24,5 ) !important;'/>
+  <text x='653.25' y='775.00' text-anchor='middle' style='fill: white !important;'>7.59</text>
+  <rect x='676.00' y='759.00' width='41.50' height='30' style='fill: rgb(164,39,1 ) !important;'/>
+  <text x='696.75' y='775.00' text-anchor='middle' style='fill: white !important;'>6.89</text>
+  <rect x='719.50' y='759.00' width='41.50' height='30' style='fill: rgb(255,255,152 ) !important;'/>
+  <text x='740.25' y='775.00' text-anchor='middle' style='fill: black !important;'>1.18</text>
+  <rect x='763.00' y='759.00' width='41.50' height='30' style='fill: rgb(193,66,1 ) !important;'/>
+  <text x='783.75' y='775.00' text-anchor='middle' style='fill: white !important;'>5.92</text>
+  <rect x='806.50' y='759.00' width='41.50' height='30' style='fill: rgb(255,181,53 ) !important;'/>
+  <text x='827.25' y='775.00' text-anchor='middle' style='fill: black !important;'>2.78</text>
+  <rect x='850.00' y='759.00' width='41.50' height='30' style='fill: rgb(251,125,5 ) !important;'/>
+  <text x='870.75' y='775.00' text-anchor='middle' style='fill: black !important;'>3.92</text>
+  <rect x='893.50' y='759.00' width='41.50' height='30' style='fill: rgb(255,233,107 ) !important;'/>
+  <text x='914.25' y='775.00' text-anchor='middle' style='fill: black !important;'>1.68</text>
+  <rect x='937.00' y='759.00' width='41.50' height='30' style='fill: rgb(254,244,129 ) !important;'/>
+  <text x='957.75' y='775.00' text-anchor='middle' style='fill: black !important;'>1.44</text>
+  <rect x='980.50' y='759.00' width='41.50' height='30' style='fill: rgb(254,252,145 ) !important;'/>
+  <text x='1001.25' y='775.00' text-anchor='middle' style='fill: black !important;'>1.27</text>
+  <rect x='1024.00' y='759.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1044.75' y='775.00' text-anchor='middle' style='fill: black !important;'>1.00</text>
+  <rect x='1067.50' y='759.00' width='41.50' height='30' style='fill: rgb(254,250,142 ) !important;'/>
+  <text x='1088.25' y='775.00' text-anchor='middle' style='fill: black !important;'>1.29</text>
+  <rect x='1111.00' y='759.00' width='41.50' height='30' style='fill: rgb(254,253,149 ) !important;'/>
+  <text x='1131.75' y='775.00' text-anchor='middle' style='fill: black !important;'>1.22</text>
+  <text x='7' y='800.00'>16-char c-string key, 64-bit value:</text>
+  <text x='7' y='814.00'>Iterate</text>
+  <rect x='241.00' y='791.00' width='41.50' height='30' style='fill: rgb(229,101,0 ) !important;'/>
+  <text x='261.75' y='807.00' text-anchor='middle' style='fill: black !important;'>4.70</text>
+  <rect x='284.50' y='791.00' width='41.50' height='30' style='fill: rgb(255,255,152 ) !important;'/>
+  <text x='305.25' y='807.00' text-anchor='middle' style='fill: black !important;'>1.19</text>
+  <rect x='328.00' y='791.00' width='41.50' height='30' style='fill: rgb(255,194,67 ) !important;'/>
+  <text x='348.75' y='807.00' text-anchor='middle' style='fill: black !important;'>2.49</text>
+  <rect x='371.50' y='791.00' width='41.50' height='30' style='fill: rgb(255,206,79 ) !important;'/>
+  <text x='392.25' y='807.00' text-anchor='middle' style='fill: black !important;'>2.24</text>
+  <rect x='415.00' y='791.00' width='41.50' height='30' style='fill: rgb(118,18,8 ) !important;'/>
+  <text x='435.75' y='807.00' text-anchor='middle' style='fill: white !important;'>8.14</text>
+  <rect x='458.50' y='791.00' width='41.50' height='30' style='fill: rgb(24,17,16 ) !important;'/>
+  <text x='479.25' y='807.00' text-anchor='middle' style='fill: white !important;'>13.43</text>
+  <rect x='502.00' y='791.00' width='41.50' height='30' style='fill: rgb(158,32,1 ) !important;'/>
+  <text x='522.75' y='807.00' text-anchor='middle' style='fill: white !important;'>7.08</text>
+  <rect x='545.50' y='791.00' width='41.50' height='30' style='fill: rgb(212,85,0 ) !important;'/>
+  <text x='566.25' y='807.00' text-anchor='middle' style='fill: white !important;'>5.24</text>
+  <rect x='589.00' y='791.00' width='41.50' height='30' style='fill: rgb(118,18,8 ) !important;'/>
+  <text x='609.75' y='807.00' text-anchor='middle' style='fill: white !important;'>8.13</text>
+  <rect x='632.50' y='791.00' width='41.50' height='30' style='fill: rgb(127,21,8 ) !important;'/>
+  <text x='653.25' y='807.00' text-anchor='middle' style='fill: white !important;'>7.88</text>
+  <rect x='676.00' y='791.00' width='41.50' height='30' style='fill: rgb(148,26,3 ) !important;'/>
+  <text x='696.75' y='807.00' text-anchor='middle' style='fill: white !important;'>7.36</text>
+  <rect x='719.50' y='791.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='740.25' y='807.00' text-anchor='middle' style='fill: black !important;'>1.00</text>
+  <rect x='763.00' y='791.00' width='41.50' height='30' style='fill: rgb(170,44,1 ) !important;'/>
+  <text x='783.75' y='807.00' text-anchor='middle' style='fill: white !important;'>6.70</text>
+  <rect x='806.50' y='791.00' width='41.50' height='30' style='fill: rgb(255,182,55 ) !important;'/>
+  <text x='827.25' y='807.00' text-anchor='middle' style='fill: black !important;'>2.75</text>
+  <rect x='850.00' y='791.00' width='41.50' height='30' style='fill: rgb(255,145,18 ) !important;'/>
+  <text x='870.75' y='807.00' text-anchor='middle' style='fill: black !important;'>3.48</text>
+  <rect x='893.50' y='791.00' width='41.50' height='30' style='fill: rgb(254,246,132 ) !important;'/>
+  <text x='914.25' y='807.00' text-anchor='middle' style='fill: black !important;'>1.39</text>
+  <rect x='937.00' y='791.00' width='41.50' height='30' style='fill: rgb(255,228,100 ) !important;'/>
+  <text x='957.75' y='807.00' text-anchor='middle' style='fill: black !important;'>1.81</text>
+  <rect x='980.50' y='791.00' width='41.50' height='30' style='fill: rgb(254,249,139 ) !important;'/>
+  <text x='1001.25' y='807.00' text-anchor='middle' style='fill: black !important;'>1.34</text>
+  <rect x='1024.00' y='791.00' width='41.50' height='30' style='fill: rgb(255,255,195 ) !important;'/>
+  <text x='1044.75' y='807.00' text-anchor='middle' style='fill: black !important;'>1.11</text>
+  <rect x='1067.50' y='791.00' width='41.50' height='30' style='fill: rgb(255,255,152 ) !important;'/>
+  <text x='1088.25' y='807.00' text-anchor='middle' style='fill: black !important;'>1.21</text>
+  <rect x='1111.00' y='791.00' width='41.50' height='30' style='fill: rgb(254,253,149 ) !important;'/>
+  <text x='1131.75' y='807.00' text-anchor='middle' style='fill: black !important;'>1.24</text>
+  <text x='7' y='839.00'>Average</text>
+  <rect x='241.00' y='823.00' width='41.50' height='30' style='fill: rgb(255,228,100 ) !important;'/>
+  <text x='261.75' y='839.00' text-anchor='middle' style='fill: black !important;'>2.01</text>
+  <rect x='284.50' y='823.00' width='41.50' height='30' style='fill: rgb(255,203,75 ) !important;'/>
+  <text x='305.25' y='839.00' text-anchor='middle' style='fill: black !important;'>2.59</text>
+  <rect x='328.00' y='823.00' width='41.50' height='30' style='fill: rgb(254,250,142 ) !important;'/>
+  <text x='348.75' y='839.00' text-anchor='middle' style='fill: black !important;'>1.45</text>
+  <rect x='371.50' y='823.00' width='41.50' height='30' style='fill: rgb(254,249,139 ) !important;'/>
+  <text x='392.25' y='839.00' text-anchor='middle' style='fill: black !important;'>1.52</text>
+  <rect x='415.00' y='823.00' width='41.50' height='30' style='fill: rgb(255,172,45 ) !important;'/>
+  <text x='435.75' y='839.00' text-anchor='middle' style='fill: black !important;'>3.31</text>
+  <rect x='458.50' y='823.00' width='41.50' height='30' style='fill: rgb(237,110,1 ) !important;'/>
+  <text x='479.25' y='839.00' text-anchor='middle' style='fill: black !important;'>4.92</text>
+  <rect x='502.00' y='823.00' width='41.50' height='30' style='fill: rgb(255,145,18 ) !important;'/>
+  <text x='522.75' y='839.00' text-anchor='middle' style='fill: black !important;'>3.92</text>
+  <rect x='545.50' y='823.00' width='41.50' height='30' style='fill: rgb(255,203,75 ) !important;'/>
+  <text x='566.25' y='839.00' text-anchor='middle' style='fill: black !important;'>2.59</text>
+  <rect x='589.00' y='823.00' width='41.50' height='30' style='fill: rgb(255,163,36 ) !important;'/>
+  <text x='609.75' y='839.00' text-anchor='middle' style='fill: black !important;'>3.52</text>
+  <rect x='632.50' y='823.00' width='41.50' height='30' style='fill: rgb(255,170,43 ) !important;'/>
+  <text x='653.25' y='839.00' text-anchor='middle' style='fill: black !important;'>3.35</text>
+  <rect x='676.00' y='823.00' width='41.50' height='30' style='fill: rgb(255,162,34 ) !important;'/>
+  <text x='696.75' y='839.00' text-anchor='middle' style='fill: black !important;'>3.55</text>
+  <rect x='719.50' y='823.00' width='41.50' height='30' style='fill: rgb(255,151,23 ) !important;'/>
+  <text x='740.25' y='839.00' text-anchor='middle' style='fill: black !important;'>3.78</text>
+  <rect x='763.00' y='823.00' width='41.50' height='30' style='fill: rgb(248,122,4 ) !important;'/>
+  <text x='783.75' y='839.00' text-anchor='middle' style='fill: black !important;'>4.49</text>
+  <rect x='806.50' y='823.00' width='41.50' height='30' style='fill: rgb(255,131,4 ) !important;'/>
+  <text x='827.25' y='839.00' text-anchor='middle' style='fill: black !important;'>4.21</text>
+  <rect x='850.00' y='823.00' width='41.50' height='30' style='fill: rgb(255,213,85 ) !important;'/>
+  <text x='870.75' y='839.00' text-anchor='middle' style='fill: black !important;'>2.36</text>
+  <rect x='893.50' y='823.00' width='41.50' height='30' style='fill: rgb(254,234,110 ) !important;'/>
+  <text x='914.25' y='839.00' text-anchor='middle' style='fill: black !important;'>1.86</text>
+  <rect x='937.00' y='823.00' width='41.50' height='30' style='fill: rgb(254,249,139 ) !important;'/>
+  <text x='957.75' y='839.00' text-anchor='middle' style='fill: black !important;'>1.49</text>
+  <rect x='980.50' y='823.00' width='41.50' height='30' style='fill: rgb(255,255,237 ) !important;'/>
+  <text x='1001.25' y='839.00' text-anchor='middle' style='fill: black !important;'>1.19</text>
+  <rect x='1024.00' y='823.00' width='41.50' height='30' style='fill: rgb(255,255,217 ) !important;'/>
+  <text x='1044.75' y='839.00' text-anchor='middle' style='fill: black !important;'>1.22</text>
+  <rect x='1067.50' y='823.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1088.25' y='839.00' text-anchor='middle' style='fill: black !important;'>1.12</text>
+  <rect x='1111.00' y='823.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1131.75' y='839.00' text-anchor='middle' style='fill: black !important;'>1.13</text>
+  <text x='7' y='871.00'>Geomean</text>
+  <rect x='241.00' y='855.00' width='41.50' height='30' style='fill: rgb(254,239,120 ) !important;'/>
+  <text x='261.75' y='871.00' text-anchor='middle' style='fill: black !important;'>1.73</text>
+  <rect x='284.50' y='855.00' width='41.50' height='30' style='fill: rgb(255,216,88 ) !important;'/>
+  <text x='305.25' y='871.00' text-anchor='middle' style='fill: black !important;'>2.27</text>
+  <rect x='328.00' y='855.00' width='41.50' height='30' style='fill: rgb(255,255,152 ) !important;'/>
+  <text x='348.75' y='871.00' text-anchor='middle' style='fill: black !important;'>1.32</text>
+  <rect x='371.50' y='855.00' width='41.50' height='30' style='fill: rgb(254,252,145 ) !important;'/>
+  <text x='392.25' y='871.00' text-anchor='middle' style='fill: black !important;'>1.42</text>
+  <rect x='415.00' y='855.00' width='41.50' height='30' style='fill: rgb(255,193,65 ) !important;'/>
+  <text x='435.75' y='871.00' text-anchor='middle' style='fill: black !important;'>2.82</text>
+  <rect x='458.50' y='855.00' width='41.50' height='30' style='fill: rgb(255,147,19 ) !important;'/>
+  <text x='479.25' y='871.00' text-anchor='middle' style='fill: black !important;'>3.87</text>
+  <rect x='502.00' y='855.00' width='41.50' height='30' style='fill: rgb(255,162,34 ) !important;'/>
+  <text x='522.75' y='871.00' text-anchor='middle' style='fill: black !important;'>3.56</text>
+  <rect x='545.50' y='855.00' width='41.50' height='30' style='fill: rgb(255,216,88 ) !important;'/>
+  <text x='566.25' y='871.00' text-anchor='middle' style='fill: black !important;'>2.28</text>
+  <rect x='589.00' y='855.00' width='41.50' height='30' style='fill: rgb(255,184,57 ) !important;'/>
+  <text x='609.75' y='871.00' text-anchor='middle' style='fill: black !important;'>3.01</text>
+  <rect x='632.50' y='855.00' width='41.50' height='30' style='fill: rgb(255,198,70 ) !important;'/>
+  <text x='653.25' y='871.00' text-anchor='middle' style='fill: black !important;'>2.71</text>
+  <rect x='676.00' y='855.00' width='41.50' height='30' style='fill: rgb(255,186,58 ) !important;'/>
+  <text x='696.75' y='871.00' text-anchor='middle' style='fill: black !important;'>3.00</text>
+  <rect x='719.50' y='855.00' width='41.50' height='30' style='fill: rgb(255,184,57 ) !important;'/>
+  <text x='740.25' y='871.00' text-anchor='middle' style='fill: black !important;'>3.03</text>
+  <rect x='763.00' y='855.00' width='41.50' height='30' style='fill: rgb(255,151,23 ) !important;'/>
+  <text x='783.75' y='871.00' text-anchor='middle' style='fill: black !important;'>3.79</text>
+  <rect x='806.50' y='855.00' width='41.50' height='30' style='fill: rgb(255,151,23 ) !important;'/>
+  <text x='827.25' y='871.00' text-anchor='middle' style='fill: black !important;'>3.79</text>
+  <rect x='850.00' y='855.00' width='41.50' height='30' style='fill: rgb(255,219,92 ) !important;'/>
+  <text x='870.75' y='871.00' text-anchor='middle' style='fill: black !important;'>2.18</text>
+  <rect x='893.50' y='855.00' width='41.50' height='30' style='fill: rgb(254,239,120 ) !important;'/>
+  <text x='914.25' y='871.00' text-anchor='middle' style='fill: black !important;'>1.73</text>
+  <rect x='937.00' y='855.00' width='41.50' height='30' style='fill: rgb(254,250,142 ) !important;'/>
+  <text x='957.75' y='871.00' text-anchor='middle' style='fill: black !important;'>1.47</text>
+  <rect x='980.50' y='855.00' width='41.50' height='30' style='fill: rgb(255,255,237 ) !important;'/>
+  <text x='1001.25' y='871.00' text-anchor='middle' style='fill: black !important;'>1.18</text>
+  <rect x='1024.00' y='855.00' width='41.50' height='30' style='fill: rgb(255,255,217 ) !important;'/>
+  <text x='1044.75' y='871.00' text-anchor='middle' style='fill: black !important;'>1.20</text>
+  <rect x='1067.50' y='855.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1088.25' y='871.00' text-anchor='middle' style='fill: black !important;'>1.12</text>
+  <rect x='1111.00' y='855.00' width='41.50' height='30' style='fill: rgb(255,255,255 ) !important;'/>
+  <text x='1131.75' y='871.00' text-anchor='middle' style='fill: black !important;'>1.12</text>
+  <text x='1195' y='897' text-anchor='end'>&#10013; Relies on tombstones or a tombstone-like mechanism</text>
+</svg>
